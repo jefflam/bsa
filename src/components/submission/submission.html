@@ -1,0 +1,27 @@
+<div ng-controller="SubmissionCtrl">
+  <div class="row news" ng-repeat="submission in submissions">
+    <div class="large-10 columns">
+      <div class="btn upvote">
+        <i class="fa fa-caret-up"></i>
+        {{submission.upvotes}}
+      </div>
+      <div class="news-link">
+        <div class="title">
+          <b>{{submission.title}}</b>
+        </div>
+        <div class="description">
+          {{submission.description}}
+        </div>
+        <div class="metadata">
+          Submitted {{submission.time_submitted}} by {{submission.author}}
+        </div>
+      </div>
+    </div>
+    <div class="large-2 columns">
+      <div class="btn comments right">
+        <i class="fa fa-comments"></i>
+        {{submission.comments}}
+      </div>
+    </div>
+  </div>
+</div>

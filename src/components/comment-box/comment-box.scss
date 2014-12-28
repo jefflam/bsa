@@ -1,0 +1,58 @@
+.comments-overlay {
+  position: fixed;
+  background-color: rgba(255,255,255,0.5);
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 11;
+}
+
+.comments {
+  position: fixed;
+  height: 100%;
+  width: 600px;
+  background-color: #ffffff;
+  top: 0;
+  right: 0;
+  z-index: 12;
+  .news-link {
+    position: relative;
+    left: 26px;
+    .title {
+      font-size: 16px;
+      color: #555555;
+    }
+    .description {
+      color: #777777;
+      font-size: 13px;
+    }
+    .metadata {
+      font-size: 12px;
+      color: #999999;
+    }
+  }
+  .btn {
+    color: #777777;
+    font-size: 12px;
+    width: 40px;
+    height: 40px;
+    background-color: #e4e4e4;
+    border-radius: 3px;
+    text-align: center;
+    position: relative;
+    &.upvote {
+      top: -14px;
+      left: 10px;
+      i {
+        display: block;
+        margin-bottom: -5px;
+        padding-top: 3px;
+        font-size: 20px;
+      }
+    }
+  }
+  .news, .comment {
+    border-bottom: 1px solid #eee;
+  }
+}

@@ -1,0 +1,43 @@
+.contain-to-grid {
+  background-color: rgba(255, 255, 255, 0.8);
+  nav {
+    background-color: rgba(255, 255, 255, 0.0);
+    section.top-bar-section {
+      ul {
+        &.left, &.right {
+          position: relative;
+          z-index: 3;
+          display: block;
+        }
+        &.right {
+          float: right;
+        }
+        &.middle {
+          text-align: center;
+          position: absolute;
+          width: 100%;
+          display: block;
+          z-index: 2;
+          span {
+            position: relative;
+            top: 10px;
+            font-size: 16px;
+            font-weight: bold;
+          }
+        }
+        li {
+          float: inherit;
+          background: none;
+          a {
+            float: inherit;
+            background: none !important;
+            color: #555555;
+            &:hover {
+              color: #777777;
+            }
+          }
+        }
+      }
+    }
+  }
+}
