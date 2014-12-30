@@ -23,10 +23,7 @@ angular.module('bsa')
 
             submissionCommentsRef.on('child_added', function(snap) {
               commentsRef.child(snap.key()).once('value', function(snap2) {
-                console.log('LOL');
-                comments.push(snap2.val());
                 counter++;
-
                 // Check to see if this is the last child, if so, resolve q
                 if (counter >= numChildren) {
                   submissionCommentsRef.off();
@@ -48,6 +45,7 @@ angular.module('bsa')
         var commentsSync = $firebase(commentsRef);
         var submissionRef = new Firebase('https://bsa.firebaseio.com/submissions');
         commentsSync.$push(data).then(function(newChildRef) {
+          newChildRef.update({ timeSubmitted: Firebase.ServerValue.TIMESTAMP });
           // Set reference for comment in submissions in nested commments
           var commentsCount = submissionRef.child(submissionId + '/commentsCount');
           submissionRef.child(submissionId + '/comments/' + newChildRef.key()).set(true);

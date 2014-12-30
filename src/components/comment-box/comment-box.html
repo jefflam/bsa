@@ -10,13 +10,13 @@
         </div>
         <div class="news-link">
           <div class="title">
-            <b>{{submission.title}}</b>
+            <b>{{submission.title}}</b> <span class="url" ng-show="submission.type==='link'">({{submission.url}})</span>
           </div>
           <div class="description">
             {{submission.description}}
           </div>
           <div class="metadata">
-            Submitted {{submission.time_submitted}} by {{submission.submitted.name}}
+            Submitted {{submission.time_submitted | fromNow}} by {{submission.submitted.name}}
           </div>
         </div>
       </div>

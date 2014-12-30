@@ -5,8 +5,15 @@
     <h4>Login</h4>
     <form>
       <div class="large-12 columns">
-        <input ng-model="email" type="text" placeholder="Email">
-        <input ng-model="password" type="password" placeholder="Password">
+        <div class="input-container">
+          <input required ng-model="email" type="text" placeholder="hello@nus.com" id="email">
+          <label for="email">Email</label>
+        </div>
+        <div class="input-container">
+          <input required ng-model="password" type="password" placeholder="MySecretPassword" id="password">
+          <label for="password">Password</label>
+        </div>
+
         <a href="#" class="button" ng-click="login()">Login</a>
       </div>
     </form>

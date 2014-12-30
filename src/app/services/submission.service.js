@@ -3,9 +3,10 @@
 angular.module('bsa')
   .factory('SubmissionService', ['$http', '$q', '$firebase', function($http, $q, $firebase) {
     var service = {
-      getSubmissions: function() {
+      getSubmissions: function(limit) {
         var q = $q.defer();
         var ref = new Firebase('https://bsa.firebaseio.com/submissions');
+        var ref = ref.orderByChild('timeSubmitted').limitToLast(limit);
         var sync = $firebase(ref);
         var syncArray = sync.$asArray();
 
@@ -26,10 +27,14 @@ angular.module('bsa')
         var ref = new Firebase('https://bsa.firebaseio.com/submissions');
         var sync = $firebase(ref);
         var syncArray = sync.$asArray();
+        console.log(submission);
+
+        console.log(submission);
         syncArray.$add(submission).then(function(ref) {
-          console.log(ref.key());
+          ref.update({ timeSubmitted: Firebase.ServerValue.TIMESTAMP });
+          q.resolve(ref);
         });
-        q.resolve(ref);
+
         return q.promise;
       },
       upvoteSubmission: function(submissionId, userId) {

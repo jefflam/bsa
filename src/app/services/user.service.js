@@ -14,22 +14,23 @@ angular.module('bsa')
               if (err === null) {
                 console.log('Logged in succesfully.');
                 ref.child('users').child(authData.uid).once('value', function(snap) {
-                  console.log(snap);
                   // Store user data in datastore if not yet
                   // should happen only for new users
                   if (snap.val() === null) {
-                    ref.onAuth(function(authData) {
-                      ref.child('users').child(authData.uid).set({
+                    ref.onAuth(function(authData2) {
+                      ref.child('users').child(authData2.uid).set({
                         email: data.email,
                         name: data.name,
-                        password: authData.password,
-                        joinDate: new Date(),
+                        password: authData2.password,
+                        joined: Firebase.ServerValue.TIMESTAMP,
                         admin: false
                       });
-                      q.resolve(authData);
+                      ref.child('users').child(authData.uid).once('value', function(user) {
+                        q.resolve(user);
+                      });
                     });
                   } else {
-                    q.resolve(authData);
+                    q.resolve(snap);
                   }
                 });
               } else {

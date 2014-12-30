@@ -55,3 +55,72 @@ html, body, p, a, ul, li, span {
 .overlay.ng-hide-add {
   animation: 0.2s fadeOut ease;
 }
+form {
+  input[type="text"], input[type="password"], textarea {
+    border-radius: 3px;
+    &:focus {
+      border: 2px solid #999999;
+      background: #ffffff;
+      box-shadow: none;
+    }
+  }
+}
+.input-container {
+  width: 100%;
+  position: relative;
+  input, textarea {
+    &::-webkit-input-placeholder {
+      color: #ffffff;
+    }
+    &:-moz-input-placeholder {
+      color: #ffffff;
+    }
+    &::-moz-input-placeholder {
+      color: #ffffff;
+    }
+    &:-ms-input-placeholder {
+      color: #ffffff;
+    }
+    &:focus::-webkit-input-placeholder {
+      color: #a9a9a9;
+    }
+    &:focus:-moz-input-placeholder {
+      color: #a9a9a9;
+    }
+    &:focus::-moz-input-placeholder {
+      color: #a9a9a9;
+    }
+    &:focus:-ms-input-placeholder {
+      color: #a9a9a9;
+    }
+    &:valid::-webkit-input-placeholder {
+      color: #a9a9a9;
+    }
+    &:valid:-moz-input-placeholder {
+      color: #a9a9a9;
+    }
+    &:valid::-moz-input-placeholder {
+      color: #a9a9a9;
+    }
+    &:valid:-ms-input-placeholder {
+      color: #a9a9a9;
+    }
+  }
+  label {
+    position: absolute;
+    top: 8px;
+    left: 9px;
+    color: #a9a9a9;
+    white-space: nowrap;
+    cursor: text;
+    transition: all 200ms ease;
+  }
+  input:focus ~label, input:valid ~label, textarea:focus ~label, textarea:valid ~label {
+    font-size: 14px;
+    color: #737373;
+    left: 4px;
+    top: -12px;
+    font-weight: bold;
+    background-color: #FFFFFF;
+  }
+}

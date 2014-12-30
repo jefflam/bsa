@@ -33,14 +33,14 @@ angular.module('bsa')
       }
 
       UserService.createNewUser(data)
-        .then(function(rsp) {
-          console.log(rsp);
+        .then(function(user) {
+          console.log(user.val());
           $scope.name = '';
           $scope.email = '';
           $scope.password = '';
           $scope.passwordAgain = '';
           $scope.error = '';
-          $rootScope.$broadcast('signup-success');
+          $rootScope.$broadcast('signup-success', {user: user});
         })
         .catch(function(err) {
           console.log(err);

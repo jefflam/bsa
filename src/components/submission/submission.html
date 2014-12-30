@@ -1,5 +1,5 @@
 <div ng-controller="SubmissionCtrl">
-  <div class="row news" ng-repeat="submission in submissions | orderBy: '-upvotes' | filter: filter">
+  <div class="row news" ng-repeat="submission in submissions | orderBy: order | filter: filter">
     <div class="large-10 columns">
       <div class="btn upvote" ng-click="upvoteSubmission(submission.$id)">
         <i class="fa fa-caret-up"></i>
@@ -7,13 +7,13 @@
       </div>
       <div class="news-link">
         <div class="title">
-          <b>{{submission.title}}</b>
+          <b>{{submission.title}}</b> <span class="url" ng-show="submission.type==='link'">({{submission.url | urlShorten}})</span>
         </div>
         <div class="description">
           {{submission.description}}
         </div>
         <div class="metadata">
-          Submitted {{submission.time_submitted}} by {{submission.submitted.name}}
+          Submitted {{submission.timeSubmitted | fromNow}} by {{submission.submitted.name}}
         </div>
       </div>
     </div>

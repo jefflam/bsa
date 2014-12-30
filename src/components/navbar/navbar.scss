@@ -1,5 +1,5 @@
 .contain-to-grid {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.9);
   nav {
     background-color: rgba(255, 255, 255, 0.0);
     section.top-bar-section {
@@ -37,10 +37,102 @@
             }
           }
         }
+        &.icons {
+          list-style: none;
+          li {
+            a {
+              color: #555555;
+              font-size: 13px;
+              i {
+                &.fa-star {
+                  margin-right: 6px;
+                  margin-left: 1px;
+                }
+                &.fa-rss {
+                  margin-right: 7px;
+                  margin-left: 2px;
+                }
+                &.fa-link {
+                  margin-right: 6px;
+                  margin-left: 1px;
+                }
+                &.fa-calendar {
+                  margin-right: 6px;
+                  margin-left: 1px;
+                }
+                &.fa-dollar {
+                  margin-left: 3px;
+                  margin-right: 9px;
+                }
+                &.fa-comment {
+                  margin-right: 5px;
+                }
+                &.fa-bars {
+                  margin-right: 7px;
+                }
+                &.fa-caret-down {
+                  margin-left: 4px;
+                }
+              }
+            }
+          }
+        }
       }
     }
+    section.sub-menu {
+      &.filter {
+        width: 160px;
+        height: 190px;
+        top: 45px;
+        left: -8px;
+      }
+      &.posts {
+        width: 115px;
+        height: 130px;
+        top: 45px;
+        left: 142px;
+      }
+      background-color: rgba(255, 255, 255, 0.9);
+      position: absolute;
+      padding: 5px;
+      border-radius: 0px 0px 3px 3px;
+      box-shadow: 0px 2px 2px #cccccc;
+      ul.icons {
+        list-style: none;
+        li {
+          padding-bottom: 5px;
+          a {
+            color: #555555;
+            font-size: 13px;
+            i {
+              &.fa-star {
+                margin-right: 6px;
+                margin-left: 1px;
+              }
+              &.fa-rss {
+                margin-right: 7px;
+                margin-left: 2px;
+              }
+              &.fa-link {
+                margin-right: 6px;
+                margin-left: 1px;
+              }
+              &.fa-calendar {
+                margin-right: 6px;
+                margin-left: 1px;
+              }
+              &.fa-dollar {
+                margin-left: 3px;
+                margin-right: 9px;
+              }
+              &.fa-comment {
+                margin-right: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+
   }
 }
-// .top-bar-section li:not(.has-form) a:not(.button) {
-//   padding: 0 8px;
-// }

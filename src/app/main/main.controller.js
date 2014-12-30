@@ -32,6 +32,8 @@ angular.module('bsa')
       $scope.submissionBox = false;
     });
     $scope.$on('signup-success', function(evt, args) {
+      $scope.user = args.user.val();
+      $scope.userId = args.user.key();
       $scope.signupBox = false;
     });
     $scope.$on('user-login', function(evt, args) {

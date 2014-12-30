@@ -6,10 +6,22 @@
     <p>Sign up to post news, articles, events, jobs as well as to comment.</p>
     <form>
       <div class="large-12 columns">
-        <input ng-model="name" type="text" placeholder="Full Name">
-        <input ng-model="email" type="text" placeholder="Email">
-        <input ng-model="password" type="password" placeholder="Password">
-        <input ng-model="passwordAgain" type="password" placeholder="Password Again">
+        <div class="input-container">
+          <input required ng-model="name" type="text" id="fullname" placeholder="Steve Jobs">
+          <label for="fullname">Full Name</label>
+        </div>
+        <div class="input-container">
+          <input required ng-model="email" type="text" id="email" placeholder="stevejobs@apple.com">
+          <label for="email">Email</label>
+        </div>
+        <div class="input-container">
+          <input required ng-model="password" type="password" id="password" placeholder="MySecretPassword">
+          <label for="password">Password</label>
+        </div>
+        <div class="input-container">
+          <input required ng-model="passwordAgain" type="password" id="passwordAgain" placeholder="MySecretPassword">
+          <label for="passwordAgain">Password Again</label>
+        </div>
         <a href="#" class="button" ng-click="signup()">Sign Up</a>
       </div>
     </form>

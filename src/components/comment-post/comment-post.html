@@ -2,7 +2,11 @@
   <form>
     <div class="row">
       <div class="large-12 columns">
-        <textarea ng-model="comment" placeholder="Write your comments..."></textarea>
+        <div class="input-container">
+          <textarea required id="comment" ng-model="comment" placeholder="Write your comments..."></textarea>
+          <label for="comment">Comments</label>
+        </div>
+
         <a href="#" class="button" ng-click="postComment()">Add Comment</a>
       </div>
     </div>

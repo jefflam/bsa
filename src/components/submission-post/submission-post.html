@@ -6,13 +6,28 @@
     <p>Submit an interesting link, event, job or question.</p>
     <form>
       <div class="large-12 columns">
-        <input ng-model="title" type="text" placeholder="Title">
-        <input ng-model="link" type="text" placeholder="Link">
-        <input ng-model="description" type="text" placeholder="Short Description">
-        <textarea ng-model="text" ng-hide="type.name==='link'" type="text" placeholder="Details"></textarea>
         <select ng-options="type.name for type in types" ng-model="type"></select>
+        <div class="input-container">
+          <input required ng-model="title" type="text" id="title" placeholder="Title of your link">
+          <label for="title">Title</label>
+        </div>
+        <div class="input-container">
+          <input required ng-model="url" type="text" ng-show="type.name==='link'" id="url" placeholder="yourURL.com">
+          <label for="url">URL</label>
+        </div>
+        <div class="input-container">
+          <input required ng-model="description" type="text" placeholder="A short description of your post" id="description">
+          <label for="description">Short Description</label>
+        </div>
+        <div class="input-container">
+          <textarea required ng-model="text" ng-hide="type.name==='link'" id="text" type="text" placeholder="More details on your event, job or discussion"></textarea>
+          <label for="text">Details</label>
+        </div>
         <a href="#" class="button" ng-click="postSubmission()">Submit</a>
       </div>
     </form>
+    <div class="large12 columns error">
+      <p>{{error}}</p>
+    </div>
   </div>
 </div>
