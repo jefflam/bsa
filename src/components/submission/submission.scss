@@ -53,5 +53,15 @@
         padding-bottom: 2px;
       }
     }
+    &.type {
+      top: 11px;
+      right: 20px;
+      cursor: pointer;
+      i {
+        font-size: 14px;
+        padding-top: 13px;
+        padding-bottom: 2px;
+      }
+    }
   }
 }

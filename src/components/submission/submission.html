@@ -1,7 +1,7 @@
 <div ng-controller="SubmissionCtrl">
-  <div class="row news" ng-repeat="submission in submissions">
+  <div class="row news" ng-repeat="submission in submissions | orderBy: '-upvotes' | filter: filter">
     <div class="large-10 columns">
-      <div class="btn upvote">
+      <div class="btn upvote" ng-click="upvoteSubmission(submission.$id)">
         <i class="fa fa-caret-up"></i>
         {{submission.upvotes}}
       </div>
@@ -13,14 +13,26 @@
           {{submission.description}}
         </div>
         <div class="metadata">
-          Submitted {{submission.time_submitted}} by {{submission.author}}
+          Submitted {{submission.time_submitted}} by {{submission.submitted.name}}
         </div>
       </div>
     </div>
     <div class="large-2 columns">
-      <div class="btn comments right">
+      <div class="btn comments right" ng-click="showComments(submission.$id)">
         <i class="fa fa-comments"></i>
-        {{submission.comments}}
+        {{submission.commentsCount}}
+      </div>
+      <div class="btn type right" ng-show="submission.type==='link'">
+        <i class="fa fa-link"></i>
+      </div>
+      <div class="btn type right" ng-show="submission.type==='event'">
+        <i class="fa fa-calendar"></i>
+      </div>
+      <div class="btn type right" ng-show="submission.type==='job'">
+        <i class="fa fa-dollar"></i>
+      </div>
+      <div class="btn type right" ng-show="submission.type==='discussion'">
+        <i class="fa fa-comment"></i>
       </div>
     </div>
   </div>

@@ -1,0 +1,18 @@
+<div ng-controller="SubmissionPostCtrl">
+  <div class="overlay" ng-click="hideOverlay()" ng-show="submissionBox"></div>
+
+  <div class="container submission-post" ng-show="submissionBox">
+    <h4>New Submission</h4>
+    <p>Submit an interesting link, event, job or question.</p>
+    <form>
+      <div class="large-12 columns">
+        <input ng-model="title" type="text" placeholder="Title">
+        <input ng-model="link" type="text" placeholder="Link">
+        <input ng-model="description" type="text" placeholder="Short Description">
+        <textarea ng-model="text" ng-hide="type.name==='link'" type="text" placeholder="Details"></textarea>
+        <select ng-options="type.name for type in types" ng-model="type"></select>
+        <a href="#" class="button" ng-click="postSubmission()">Submit</a>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('bsa', ['ui.router'])
+angular.module('bsa', ['ui.router', 'ngAnimate', 'firebase'])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {

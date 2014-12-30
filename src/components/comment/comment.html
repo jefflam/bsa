@@ -1,8 +1,8 @@
 <div ng-controller="CommentCtrl">
   <div class="row clear comment" ng-repeat="comment in comments">
     <div class="col col-12">
-      <div class="message">comment</div>
-      <div class="author">by Jeff</div>
+      <div class="message">{{comment.text}}</div>
+      <div class="author">by {{comment.author}}</div>
     </div>
   </div>
 </div>

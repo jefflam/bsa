@@ -1,0 +1,17 @@
+<div ng-controller="LoginCtrl">
+  <div class="overlay" ng-click="hideOverlay()" ng-show="loginBox"></div>
+
+  <div class="container signup" ng-show="loginBox">
+    <h4>Login</h4>
+    <form>
+      <div class="large-12 columns">
+        <input ng-model="email" type="text" placeholder="Email">
+        <input ng-model="password" type="password" placeholder="Password">
+        <a href="#" class="button" ng-click="login()">Login</a>
+      </div>
+    </form>
+    <div class="large-12 columns error">
+      <p>{{error}}</p>
+    </div>
+  </div>
+</div>

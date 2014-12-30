@@ -8,15 +8,22 @@
 
     <section class="top-bar-section">
       <ul class="left">
-        <li><a ng-href="#">LATEST</a></li>
-        <li><a ng-href="#">POPULAR</a></li>
+        <li><a ng-href="#" ng-click="updateFilter('')"><i class="fa fa-rss"></i></a></li>
+        <li><a ng-href="#" ng-click="updateFilter('link')"><i class="fa fa-link"></i></a></li>
+        <li><a ng-href="#" ng-click="updateFilter('event')"><i class="fa fa-calendar"></i></a></li>
+        <li><a ng-href="#" ng-click="updateFilter('job')"><i class="fa fa-dollar"></i></a></li>
+        <li><a ng-href="#" ng-click="updateFilter('discussion')"><i class="fa fa-comment"></i></a></li>
       </ul>
       <ul class="middle">
         <span>NUSBSA NEWS</span>
       </ul>
       <ul class="right">
-        <li><a ng-href="#">SIGN UP</a></li>
-        <li><a ng-href="#">LOGIN</a></li>
+        <li><a ng-href="#" ng-click="showSignup()" ng-hide="user">SIGN UP</a></li>
+        <li><a ng-href="#" ng-click="showLogin()" ng-hide="user">LOGIN</a></li>
+
+        <li><a ng-href="#" ng-click="logout()" ng-show="user">LOGOUT</a></li>
+        <li><a ng-href="#" ng-show="user">{{ user.name | uppercase }}</a></li>
+        <li><a ng-href="#" ng-click="showSubmission()" ng-show="user">SUBMIT</a></li>
       </ul>
     </section>
   </nav>

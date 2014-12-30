@@ -1,0 +1,169 @@
+{
+  "users": {
+    "user1": {
+      "name": "Jeff Lam Tian Hung",
+      "email": "jefflamth@gmail.com",
+      "password": "hashedpassword",
+      "joinDate": "10 minutes ago",
+      "matriculation": "2010",
+      "commencement": "2014",
+      "profilePicture": "http://google.com/profile",
+      "admin": true,
+      "occupation": "Sales Engineer",
+      "organization": "Symphony",
+      "submissions": {
+        "submission1": true,
+        "submission2": true,
+        "submission3": true
+      },
+      "comments": {
+        "comment1": true
+      }
+    },
+    "user2": {
+      "name": "Brad Pitt",
+      "email": "bradpitth@gmail.com",
+      "password": "hashedpassword",
+      "joinDate": "10 minutes ago",
+      "matriculation": "2010",
+      "commencement": "2014",
+      "profilePicture": "http://google.com/profile",
+      "admin": true,
+      "occupation": "Actor",
+      "organization": "Hollywood",
+      "submissions": {
+        "submission4": true,
+        "submission5": true,
+        "submission6": true
+      },
+      "comments": {
+        "comment2": true
+      }
+    },
+    "user3": {
+      "name": "Emma Watson",
+      "email": "emma@gmail.com",
+      "password": "hashedpassword",
+      "joinDate": "10 minutes ago",
+      "matriculation": "2010",
+      "commencement": "2014",
+      "profilePicture": "http://google.com/profile",
+      "admin": true,
+      "occupation": "Student",
+      "organization": "Brown University",
+      "submissions": {
+        "submission7": true,
+        "submission8": true
+      },
+      "comments": {
+        "comment3": true
+      }
+    }
+  },
+  "submissions": {
+    "submission1": {
+      "title": "AngularJS",
+      "url": "https://angularjs.org/",
+      "description": "HTML enhanced for web apps!",
+      "submitted": "user1",
+      "time_submitted": "10 minutes ago",
+      "upvotes": 0,
+      "commentsCount": 2,
+      "comments": {
+        "comment1": true,
+        "comment2": true
+      },
+      "type": "link"
+    },
+    "submission2": {
+      "title": "BrowserSync",
+      "url": "http://browsersync.io/",
+      "description": "Time-saving synchronised browser testing.",
+      "submitted": "user1",
+      "time_submitted": "10 minutes ago",
+      "upvotes": 0,
+      "commentsCount": 1,
+      "comments": {
+        "comment3": true
+      },
+      "type": "link"
+    },
+    "submission3": {
+      "title": "GulpJS",
+      "url": "http://gulpjs.com/",
+      "description": "The streaming build system.",
+      "submitted": "user1",
+      "time_submitted": "10 minutes ago",
+      "upvotes": 0,
+      "commentsCount": 0,
+      "type": "link"
+    },
+    "submission4": {
+      "title": "Jasmine",
+      "url": "http://jasmine.github.io/",
+      "description": "Behavior-Driven JavaScript.",
+      "submitted": "user2",
+      "time_submitted": "10 minutes ago",
+      "upvotes": 0,
+      "commentsCount": 0,
+      "type": "link"
+    },
+    "submission5": {
+      "title": "Karma",
+      "url": "http://karma-runner.github.io/",
+      "description": "Spectacular Test Runner for JavaScript.",
+      "submitted": "user2",
+      "time_submitted": "10 minutes ago",
+      "upvotes": 0,
+      "commentsCount": 0,
+      "type": "link"
+    },
+    "submission6": {
+      "title": "Protractor",
+      "url": "https://github.com/angular/protractor",
+      "description": "End to end test framework for AngularJS applications built on top of WebDriverJS.",
+      "submitted": "user2",
+      "time_submitted": "10 minutes ago",
+      "upvotes": 0,
+      "commentsCount": 0,
+      "type": "link"
+    },
+    "submission7": {
+      "title": "Foundation",
+      "url": "http://foundation.zurb.com/",
+      "description": "The most advanced responsive front-end framework in the world.",
+      "submitted": "user3",
+      "time_submitted": "10 minutes ago",
+      "upvotes": 0,
+      "commentsCount": 0,
+      "type": "link"
+    },
+    "submission8": {
+      "title": "Sass (Node)",
+      "url": "https://github.com/sass/node-sass",
+      "description": "Node.js binding to libsass, the C version of the popular stylesheet preprocessor, Sass.",
+      "submitted": "user3",
+      "time_submitted": "10 minutes ago",
+      "upvotes": 0,
+      "commentsCount": 0,
+      "type": "link"
+    }
+  },
+  "comments": {
+    "comment1": {
+      "submission": "submission1",
+      "author": "user1",
+      "text": "Hello this is Jeff"
+    },
+    "comment2": {
+      "submission": "submission1",
+      "author": "user2",
+      "text": "Hello this is Brad"
+    },
+    "comment3": {
+      "submission": "submission2",
+      "author": "user3",
+      "text": "Hello this is Emma"
+    }
+  }
+}

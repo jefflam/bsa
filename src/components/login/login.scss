@@ -1,0 +1,31 @@
+.login {
+  position: fixed;
+  top: 10%;
+  left: 25%;
+  width: 50%;
+  z-index: 102;
+  background-color: #FFF;
+  border-radius: 3px;
+  padding: 20px;
+  box-shadow: 0px 2px 6px #CCC;
+  text-align: center;
+  .error {
+    p {
+      color: #E84444;
+    }
+  }
+  p {
+    font-size: 14px;
+    color: #777777;
+  }
+  .button {
+    width: 100%;
+    font-size: 14px;
+  }
+}
+.login.ng-hide-remove {
+  animation: 0.2s fadeInDown ease;
+}
+.login.ng-hide-add {
+  animation: 0.2s fadeOutUp ease;
+}

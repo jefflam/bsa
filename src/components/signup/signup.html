@@ -1,0 +1,20 @@
+<div ng-controller="SignupCtrl">
+  <div class="overlay" ng-click="hideOverlay()" ng-show="signupBox"></div>
+
+  <div class="container signup" ng-show="signupBox">
+    <h4>Sign Up</h4>
+    <p>Sign up to post news, articles, events, jobs as well as to comment.</p>
+    <form>
+      <div class="large-12 columns">
+        <input ng-model="name" type="text" placeholder="Full Name">
+        <input ng-model="email" type="text" placeholder="Email">
+        <input ng-model="password" type="password" placeholder="Password">
+        <input ng-model="passwordAgain" type="password" placeholder="Password Again">
+        <a href="#" class="button" ng-click="signup()">Sign Up</a>
+      </div>
+    </form>
+    <div class="large-12 columns error">
+      <p>{{error}}</p>
+    </div>
+  </div>
+</div>
