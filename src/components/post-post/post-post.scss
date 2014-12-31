@@ -1,4 +1,4 @@
-.submission-post {
+.post-post {
   position: fixed;
   top: 10%;
   left: 25%;
@@ -23,9 +23,9 @@
     font-size: 14px;
   }
 }
-.submission-post.ng-hide-remove {
+.post-post.ng-hide-remove {
   animation: 0.2s fadeInDown ease;
 }
-.submission-post.ng-hide-add {
+.post-post.ng-hide-add {
   animation: 0.2s fadeOutUp ease;
 }

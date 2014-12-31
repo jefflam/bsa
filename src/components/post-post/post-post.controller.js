@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('bsa')
-  .controller('SubmissionPostCtrl', ['$scope', '$rootScope', 'SubmissionService', function($scope, $rootScope, SubmissionService) {
+  .controller('PostPostCtrl', ['$scope', '$rootScope', 'PostService', function($scope, $rootScope, PostService) {
     $scope.types = [
       { name: 'link' },
       { name: 'event' },
@@ -27,7 +27,7 @@ angular.module('bsa')
       $scope.userId = args.user.key();
     });
 
-    $scope.postSubmission = function() {
+    $scope.postPost = function() {
       if ($scope.title === '') {
           $scope.error = 'Please enter a title.';
           return;
@@ -45,7 +45,7 @@ angular.module('bsa')
           return;
       }
 
-      var submission = {
+      var post = {
         title: $scope.title,
         description: $scope.description,
         url: $scope.url,
@@ -60,11 +60,11 @@ angular.module('bsa')
         }
       };
 
-      if (submission.type === 'link') {
-        submission.text = '';
+      if (post.type === 'link') {
+        post.text = '';
       }
 
-      SubmissionService.postSubmission(submission)
+      PostService.postPost(post)
         .then(function(rsp) {
           $scope.title = '';
           $scope.description = '';
@@ -72,7 +72,7 @@ angular.module('bsa')
           $scope.type = $scope.types[0];
           $scope.text = '';
 
-          $rootScope.$broadcast('submission-success');
+          $rootScope.$broadcast('post-success');
         })
         .catch(function(err) {
           console.log(err);

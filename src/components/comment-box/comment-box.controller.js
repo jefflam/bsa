@@ -1,18 +1,18 @@
 'use strict';
 
 angular.module('bsa')
-  .controller('CommentBoxCtrl', ['$scope', 'SubmissionService', function($scope, SubmissionService) {
+  .controller('CommentBoxCtrl', ['$scope', 'PostService', function($scope, PostService) {
     $scope.$on('show-comments', function(evt, args) {
-      $scope.submissionId = args.submissionId
+      $scope.postId = args.postId
 
-      SubmissionService.getSubmission($scope.submissionId)
-        .then(function(submission) {
-          $scope.submission = submission;
+      PostService.getPost($scope.postId)
+        .then(function(post) {
+          $scope.post = post;
         });
     });
 
-    $scope.upvoteSubmission = function(submissionId, userId) {
-      SubmissionService.upvoteSubmission(submissionId, 'user1')
+    $scope.upvotePost = function(postId, userId) {
+      PostService.upvotePost(postId, 'user1')
         .then(function(rsp) {
           console.log(rsp);
         })

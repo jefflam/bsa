@@ -5,7 +5,7 @@ angular.module('bsa')
     $scope.commentBox = false;
     $scope.signupBox = false;
     $scope.loginBox = false;
-    $scope.submissionBox = false;
+    $scope.postBox = false;
 
     // Check if user is already logged in
     UserService.getAuth()
@@ -23,13 +23,14 @@ angular.module('bsa')
       $scope.signupBox = true;
     });
     $scope.$on('show-login', function(evt, args) {
+      console.log('login');
       $scope.loginBox = true;
     });
-    $scope.$on('show-submission', function(evt, args) {
-      $scope.submissionBox = true;
+    $scope.$on('show-post', function(evt, args) {
+      $scope.postBox = true;
     });
-    $scope.$on('submission-success', function(evt, args) {
-      $scope.submissionBox = false;
+    $scope.$on('post-success', function(evt, args) {
+      $scope.postBox = false;
     });
     $scope.$on('signup-success', function(evt, args) {
       $scope.user = args.user.val();
@@ -49,6 +50,6 @@ angular.module('bsa')
       $scope.commentBox = false;
       $scope.signupBox = false;
       $scope.loginBox = false;
-      $scope.submissionBox = false;
+      $scope.postBox = false;
     }
   }]);

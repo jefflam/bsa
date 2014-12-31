@@ -3,16 +3,16 @@
 angular.module('bsa')
   .factory('CommentService', ['$http', '$q', '$firebase', function($http, $q, $firebase) {
     var service = {
-      getCommentsFromSubmission: function(submissionId) {
+      getCommentsFromPost: function(postId) {
         var q = $q.defer();
         var commentsRef = new Firebase('https://bsa.firebaseio.com/comments');
-        var submissionRef = new Firebase('https://bsa.firebaseio.com/submissions');
-        var submissionCommentsRef = submissionRef.child(submissionId).child('comments');
+        var postRef = new Firebase('https://bsa.firebaseio.com/posts');
+        var postCommentsRef = postRef.child(postId).child('comments');
         var comments = [];
 
         // Check if there are comments, else
-        // we have to leave it as empty for another submission
-        submissionCommentsRef.on('value', function(data) {
+        // we have to leave it as empty for another post
+        postCommentsRef.on('value', function(data) {
           if (data.val() !== null) {
             // We use a counter to determine how many children there are
             // and when to resolve q.
@@ -21,12 +21,13 @@ angular.module('bsa')
             var counter = 0;
             var numChildren = data.numChildren();
 
-            submissionCommentsRef.on('child_added', function(snap) {
+            postCommentsRef.on('child_added', function(snap) {
               commentsRef.child(snap.key()).once('value', function(snap2) {
+                comments.push(snap2.val());
                 counter++;
                 // Check to see if this is the last child, if so, resolve q
                 if (counter >= numChildren) {
-                  submissionCommentsRef.off();
+                  postCommentsRef.off();
                   q.resolve(comments);
                 }
               });
@@ -40,15 +41,15 @@ angular.module('bsa')
       },
       postComment: function(data) {
         var q = $q.defer();
-        var submissionId = data.submissionId;
+        var postId = data.postId;
         var commentsRef = new Firebase('https://bsa.firebaseio.com/comments');
         var commentsSync = $firebase(commentsRef);
-        var submissionRef = new Firebase('https://bsa.firebaseio.com/submissions');
+        var postRef = new Firebase('https://bsa.firebaseio.com/posts');
         commentsSync.$push(data).then(function(newChildRef) {
           newChildRef.update({ timeSubmitted: Firebase.ServerValue.TIMESTAMP });
-          // Set reference for comment in submissions in nested commments
-          var commentsCount = submissionRef.child(submissionId + '/commentsCount');
-          submissionRef.child(submissionId + '/comments/' + newChildRef.key()).set(true);
+          // Set reference for comment in posts in nested commments
+          var commentsCount = postRef.child(postId + '/commentsCount');
+          postRef.child(postId + '/comments/' + newChildRef.key()).set(true);
           commentsCount.transaction(function(currentValue) {
             q.resolve(newChildRef);
             return (currentValue || 0) + 1;

@@ -4,15 +4,30 @@ angular.module('bsa')
   .controller('CommentPostCtrl', ['$scope', '$rootScope', 'CommentService', function($scope, $rootScope, CommentService) {
     $scope.comment = null;
 
+    $scope.$on('user-login', function(evt, args) {
+      $scope.user = args.user.val();
+      $scope.userId = args.user.key();
+    });
+    $scope.$on('user-logout', function(evt, args) {
+      $scope.user = null;
+      $scope.userId = null;
+    });
+    $scope.$on('signup-success', function(evt, args) {
+      $scope.user = args.user.val();
+      $scope.userId = args.user.key();
+    });
     $scope.$on('show-comments', function(evt, args) {
-      $scope.submissionId = args.submissionId;
+      $scope.postId = args.postId;
     });
 
     $scope.postComment = function() {
       var data = {
-        submissionId: $scope.submissionId,
+        postId: $scope.postId,
         text: $scope.comment,
-        author: 'user1'
+        commented: {
+          name: $scope.user.name,
+          userId: $scope.userId
+        }
       };
 
       CommentService.postComment(data)

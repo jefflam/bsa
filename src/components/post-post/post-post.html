@@ -1,8 +1,8 @@
-<div ng-controller="SubmissionPostCtrl">
-  <div class="overlay" ng-click="hideOverlay()" ng-show="submissionBox"></div>
+<div ng-controller="PostPostCtrl">
+  <div class="overlay" ng-click="hideOverlay()" ng-show="postBox"></div>
 
-  <div class="container submission-post" ng-show="submissionBox">
-    <h4>New Submission</h4>
+  <div class="container post-post" ng-show="postBox">
+    <h4>New Post</h4>
     <p>Submit an interesting link, event, job or question.</p>
     <form>
       <div class="large-12 columns">
@@ -23,7 +23,7 @@
           <textarea required ng-model="text" ng-hide="type.name==='link'" id="text" type="text" placeholder="More details on your event, job or discussion"></textarea>
           <label for="text">Details</label>
         </div>
-        <a href="#" class="button" ng-click="postSubmission()">Submit</a>
+        <a href="#" class="button" ng-click="postPost()">Submit</a>
       </div>
     </form>
     <div class="large12 columns error">

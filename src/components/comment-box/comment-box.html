@@ -4,26 +4,26 @@
   <div class="container comments" ng-show="commentBox">
     <div class="row news">
       <div class="large-10 columns">
-        <div class="btn upvote" ng-click="upvoteSubmission(submission.$id)">
+        <div class="btn upvote" ng-click="upvotePost(post.$id)">
           <i class="fa fa-caret-up"></i>
-          {{submission.upvotes}}
+          {{post.upvotes}}
         </div>
         <div class="news-link">
           <div class="title">
-            <b>{{submission.title}}</b> <span class="url" ng-show="submission.type==='link'">({{submission.url}})</span>
+            <b>{{post.title}}</b> <span class="url" ng-show="post.type==='link'">({{post.url}})</span>
           </div>
           <div class="description">
-            {{submission.description}}
+            {{post.description}}
           </div>
           <div class="metadata">
-            Submitted {{submission.time_submitted | fromNow}} by {{submission.submitted.name}}
+            Submitted {{post.time_submitted | fromNow}} by {{post.submitted.name}}
           </div>
         </div>
       </div>
     </div>
-    <div class="row news-text" ng-hide="submission.type==='link'">
+    <div class="row news-text" ng-hide="post.type==='link'">
       <div class="large-12 columns">
-        {{submission.text}}
+        {{post.text}}
       </div>
     </div>
     <div ng-include="'components/comment-post/comment-post.html'"></div>

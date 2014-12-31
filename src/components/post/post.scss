@@ -46,6 +46,11 @@
         padding-top: 3px;
         font-size: 20px;
       }
+      &.upvoted {
+        line-height: 3.5em;
+        background-color: #8BC762;
+        color: #ffffff;
+      }
     }
     &.comments {
       top: 11px;

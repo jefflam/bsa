@@ -29,8 +29,8 @@ angular.module('bsa')
     $scope.showLogin = function() {
       $rootScope.$broadcast('show-login');
     };
-    $scope.showSubmission = function() {
-      $rootScope.$broadcast('show-submission');
+    $scope.showPost = function() {
+      $rootScope.$broadcast('show-post');
     };
     $scope.showFiltersSubMenu = function() {
       $scope.filtersSubMenu = true;
@@ -75,7 +75,7 @@ angular.module('bsa')
           $scope.filter.name = 'POPULAR';
           break;
       }
-      $rootScope.$broadcast('submission-filter', {filter: type});
+      $rootScope.$broadcast('post-filter', {filter: type});
     };
     $scope.updatePosts = function(limit) {
       switch (limit) {

@@ -11,10 +11,10 @@
       "admin": true,
       "occupation": "Sales Engineer",
       "organization": "Symphony",
-      "submissions": {
-        "submission1": true,
-        "submission2": true,
-        "submission3": true
+      "posts": {
+        "post1": true,
+        "post2": true,
+        "post3": true
       },
       "comments": {
         "comment1": true
@@ -31,10 +31,10 @@
       "admin": true,
       "occupation": "Actor",
       "organization": "Hollywood",
-      "submissions": {
-        "submission4": true,
-        "submission5": true,
-        "submission6": true
+      "posts": {
+        "post4": true,
+        "post5": true,
+        "post6": true
       },
       "comments": {
         "comment2": true
@@ -51,17 +51,17 @@
       "admin": true,
       "occupation": "Student",
       "organization": "Brown University",
-      "submissions": {
-        "submission7": true,
-        "submission8": true
+      "posts": {
+        "post7": true,
+        "post8": true
       },
       "comments": {
         "comment3": true
       }
     }
   },
-  "submissions": {
-    "submission1": {
+  "posts": {
+    "post1": {
       "title": "AngularJS",
       "url": "https://angularjs.org/",
       "description": "HTML enhanced for web apps!",
@@ -78,7 +78,7 @@
       },
       "type": "link"
     },
-    "submission2": {
+    "post2": {
       "title": "BrowserSync",
       "url": "http://browsersync.io/",
       "description": "Time-saving synchronised browser testing.",
@@ -94,7 +94,7 @@
       },
       "type": "link"
     },
-    "submission3": {
+    "post3": {
       "title": "GulpJS",
       "url": "http://gulpjs.com/",
       "description": "The streaming build system.",
@@ -107,7 +107,7 @@
       "commentsCount": 0,
       "type": "link"
     },
-    "submission4": {
+    "post4": {
       "title": "Jasmine",
       "url": "http://jasmine.github.io/",
       "description": "Behavior-Driven JavaScript.",
@@ -120,7 +120,7 @@
       "commentsCount": 0,
       "type": "link"
     },
-    "submission5": {
+    "post5": {
       "title": "Karma",
       "url": "http://karma-runner.github.io/",
       "description": "Spectacular Test Runner for JavaScript.",
@@ -133,7 +133,7 @@
       "commentsCount": 0,
       "type": "link"
     },
-    "submission6": {
+    "post6": {
       "title": "Protractor",
       "url": "https://github.com/angular/protractor",
       "description": "End to end test framework for AngularJS applications built on top of WebDriverJS.",
@@ -146,7 +146,7 @@
       "commentsCount": 0,
       "type": "link"
     },
-    "submission7": {
+    "post7": {
       "title": "Foundation",
       "url": "http://foundation.zurb.com/",
       "description": "The most advanced responsive front-end framework in the world.",
@@ -159,7 +159,7 @@
       "commentsCount": 0,
       "type": "link"
     },
-    "submission8": {
+    "post8": {
       "title": "Sass (Node)",
       "url": "https://github.com/sass/node-sass",
       "description": "Node.js binding to libsass, the C version of the popular stylesheet preprocessor, Sass.",
@@ -175,17 +175,17 @@
   },
   "comments": {
     "comment1": {
-      "submission": "submission1",
+      "post": "post1",
       "author": "user1",
       "text": "Hello this is Kevin"
     },
     "comment2": {
-      "submission": "submission1",
+      "post": "post1",
       "author": "user2",
       "text": "Hello this is Brad"
     },
     "comment3": {
-      "submission": "submission2",
+      "post": "post2",
       "author": "user3",
       "text": "Hello this is Emma"
     }

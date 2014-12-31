@@ -3,14 +3,12 @@
 angular.module('bsa')
   .controller('CommentCtrl', ['$scope', 'CommentService', function($scope, CommentService) {
     $scope.$on('show-comments', function(evt, args) {
-      console.log('hi');
       $scope.comments = [];
 
-      $scope.submissionId = args.submissionId;
+      $scope.postId = args.postId;
 
-      CommentService.getCommentsFromSubmission($scope.submissionId)
+      CommentService.getCommentsFrompost($scope.postId)
         .then(function(comments) {
-          console.log(comments);
           $scope.comments = comments;
         })
         .catch(function(err) {
