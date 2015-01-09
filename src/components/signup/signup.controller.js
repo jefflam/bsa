@@ -9,6 +9,8 @@ angular.module('bsa')
     $scope.error = '';
 
     $scope.signup = function() {
+      var emailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
       var data = {
         name: $scope.name,
         email: $scope.email,
@@ -23,8 +25,12 @@ angular.module('bsa')
           $scope.error = 'Please enter your email.';
           return;
       }
-      if ($scope.password === '') {
-          $scope.error = 'Please enter a password.';
+      if (!emailRegex.test($scope.email)) {
+          $scope.error = 'Your email address seems to be wrongly formatted. Please check and try again.';
+          return;
+      }
+      if ($scope.password === '' || $scope.password.length < 8) {
+          $scope.error = 'Please enter a password that is at least 8 letters long.';
           return;
       }
       if ($scope.password !== $scope.passwordAgain) {

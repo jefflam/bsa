@@ -1,17 +1,31 @@
 <div ng-controller="PostCtrl">
-  <div class="row news" ng-repeat="post in posts | orderBy: order | filter: filter">
-    <div class="large-10 columns">
-      <div class="btn upvote" ng-click="upvotePost(post.$id)" ng-hide="post.userHasUpvoted">
-        <i class="fa fa-caret-up"></i>
+  <div class="row news" ng-repeat="post in posts | filter: filter">
+    <div class="large-12 columns">
+      <div class="btn upvote" ng-click="upvotePost(post.$id)" ng-hide="post.upvoters[userId]">
+        <i class="fa fa-chevron-up"></i>
         {{post.upvotes}}
       </div>
-      <div class="btn upvote upvoted" ng-show="post.userHasUpvoted">
+      <div class="btn upvote upvoted" ng-show="post.upvoters[userId]">
         {{post.upvotes}}
       </div>
 
       <div class="news-link">
         <div class="title">
-          <b>{{post.title}}</b> <span class="url" ng-show="post.type==='link'">({{post.url | urlShorten}})</span>
+          <b ng-hide="post.type==='link'"><a ng-click="showComments(post.$id)" href ng-href="#/{{post.$id}}">{{post.title}}</a></b>
+          <b ng-show="post.type==='link'"><a href="{{post.url}}" target="_blank">{{post.title}}</a></b>
+          <span class="url" ng-show="post.type==='link'">({{post.url | urlShorten}})</span>
+          <span class="type link" ng-show="post.type==='link'">
+            <i class="fa fa-link"></i> LINK
+          </span>
+          <span class="type event" ng-show="post.type==='event'">
+            <i class="fa fa-calendar"></i> EVENT
+          </span>
+          <span class="type job" ng-show="post.type==='job'">
+            <i class="fa fa-dollar"></i> JOB
+          </span>
+          <span class="type discussion" ng-show="post.type==='discussion'">
+            <i class="fa fa-comment"></i> DISCUSSION
+          </span>
         </div>
         <div class="description">
           {{post.description}}
@@ -20,23 +34,10 @@
           Submitted {{post.timeSubmitted | fromNow}} by {{post.submitted.name}}
         </div>
       </div>
-    </div>
-    <div class="large-2 columns">
+
       <div class="btn comments right" ng-click="showComments(post.$id)">
         <i class="fa fa-comments"></i>
         {{post.commentsCount}}
-      </div>
-      <div class="btn type right" ng-show="post.type==='link'">
-        <i class="fa fa-link"></i>
-      </div>
-      <div class="btn type right" ng-show="post.type==='event'">
-        <i class="fa fa-calendar"></i>
-      </div>
-      <div class="btn type right" ng-show="post.type==='job'">
-        <i class="fa fa-dollar"></i>
-      </div>
-      <div class="btn type right" ng-show="post.type==='discussion'">
-        <i class="fa fa-comment"></i>
       </div>
     </div>
   </div>

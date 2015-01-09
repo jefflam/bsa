@@ -1,5 +1,5 @@
 <div ng-controller="CommentPostCtrl" ng-show="user">
-  <form>
+  <form class="comment-post">
     <div class="row">
       <div class="large-12 columns">
         <div class="input-container">
@@ -7,7 +7,10 @@
           <label for="comment">Comments</label>
         </div>
 
-        <a href="#" class="button" ng-click="postComment()">Add Comment</a>
+        <a href="#" class="button default" ng-click="postComment()">Add Comment</a>
+        <div class="error" ng-show="error">
+          <p>{{error}}</p>
+        </div>
       </div>
     </div>
   </form>

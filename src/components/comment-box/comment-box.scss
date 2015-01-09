@@ -6,9 +6,9 @@
   top: 0;
   right: 0;
   z-index: 101;
+  box-shadow: -2px 0px 5px #cccccc;
   .news-link {
     position: relative;
-    left: 26px;
     .title {
       font-size: 16px;
       color: #555555;
@@ -23,22 +23,62 @@
     }
   }
   .btn {
-    color: #777777;
-    font-size: 12px;
+    color: #2C3E50;
+    font-size: 11px;
+    font-weight: bold;
     width: 40px;
     height: 40px;
-    background-color: #e4e4e4;
+    border: 2px solid #2C3E50;
+    background-color: none;
     border-radius: 3px;
     text-align: center;
     position: relative;
+    z-index: 1;
+    width: 36px;
+    height: 36px;
+    border-radius: 30px;
+    transition: all 100ms ease-out;
+    -webkit-transition: all 100ms ease-out;
+    -moz-transition: all 100ms ease-out;
+    -o-transition: all 100ms ease-out;
+    i {
+      display: block;
+      margin-bottom: -5px;
+    }
     &.upvote {
-      top: -14px;
+      top: 5px;
       left: 10px;
+      float: left;
+      cursor: pointer;
+      line-height: 1.4em;
+      padding-left: 1px;
+      &:hover {
+        background-color: #2C3E50;
+        border: 2px solid #2C3E50;
+        color: #ffffff;
+      }
       i {
-        display: block;
-        margin-bottom: -5px;
         padding-top: 3px;
-        font-size: 20px;
+        font-size: 13px;
+        padding-bottom: 2px;
+      }
+      &.ng-hide-add {
+        animation: none;
+        -webkit-animation: none;
+      }
+      &.upvoted {
+        line-height: 3em;
+        border: 2px solid #27AE60;
+        background-color: #ffffff;
+        color: #27AE60;
+        cursor: default;
+        z-index: 20;
+        &.ng-hide-remove {
+          animation: none;
+          -webkit-animation: none;
+          animation-delay: none;
+          -webkit-animation-delay: none;
+        }
       }
     }
   }

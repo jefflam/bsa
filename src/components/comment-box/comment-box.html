@@ -4,8 +4,11 @@
   <div class="container comments" ng-show="commentBox">
     <div class="row news">
       <div class="large-10 columns">
-        <div class="btn upvote" ng-click="upvotePost(post.$id)">
-          <i class="fa fa-caret-up"></i>
+        <div class="btn upvote" ng-click="upvotePost(post.$id)" ng-hide="post.upvoters[userId]">
+          <i class="fa fa-chevron-up"></i>
+          {{post.upvotes}}
+        </div>
+        <div class="btn upvote upvoted" ng-show="post.upvoters[userId]">
           {{post.upvotes}}
         </div>
         <div class="news-link">

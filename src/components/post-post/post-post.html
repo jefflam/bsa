@@ -12,7 +12,7 @@
           <label for="title">Title</label>
         </div>
         <div class="input-container">
-          <input required ng-model="url" type="text" ng-show="type.name==='link'" id="url" placeholder="yourURL.com">
+          <input required ng-model="url" type="text" ng-show="type.value==='link'" id="url" placeholder="yourURL.com">
           <label for="url">URL</label>
         </div>
         <div class="input-container">
@@ -20,10 +20,10 @@
           <label for="description">Short Description</label>
         </div>
         <div class="input-container">
-          <textarea required ng-model="text" ng-hide="type.name==='link'" id="text" type="text" placeholder="More details on your event, job or discussion"></textarea>
+          <textarea required ng-model="text" ng-hide="type.value==='link'" id="text" type="text" placeholder="More details on your event, job or discussion"></textarea>
           <label for="text">Details</label>
         </div>
-        <a href="#" class="button" ng-click="postPost()">Submit</a>
+        <a href="#" class="button default" ng-click="postPost()">Submit</a>
       </div>
     </form>
     <div class="large12 columns error">

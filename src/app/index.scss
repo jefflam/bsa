@@ -8,6 +8,31 @@
 @import '../components/signup/signup.scss';
 @import '../components/login/login.scss';
 
+.column, .columns {
+  // border: 1px solid red;
+}
+
+.button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 3px;
+  font-size: 14px;
+  transition: all 100ms ease-out;
+  -webkit-transition: all 100ms ease-out;
+  -moz-transition: all 100ms ease-out;
+  -o-transition: all 100ms ease-out;
+  &.default {
+    color: #34495E;
+    border: 2px solid #34495E;
+    font-weight: bold;
+    background-color: #ffffff;
+    &:hover {
+      background-color: #34495E;
+      color: #ffffff;
+    }
+  }
+}
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -25,7 +50,7 @@ html, body {
 }
 
 html, body, p, a, ul, li, span {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
 }
 
 .main {
@@ -57,9 +82,10 @@ html, body, p, a, ul, li, span {
 }
 form {
   input[type="text"], input[type="password"], textarea {
+    border: 1px solid #2C3E50;
     border-radius: 3px;
     &:focus {
-      border: 2px solid #999999;
+      border: 2px solid #2C3E50;
       background: #ffffff;
       box-shadow: none;
     }
@@ -110,17 +136,79 @@ form {
     position: absolute;
     top: 8px;
     left: 9px;
-    color: #a9a9a9;
+    color: #2C3E50;
     white-space: nowrap;
     cursor: text;
     transition: all 200ms ease;
   }
   input:focus ~label, input:valid ~label, textarea:focus ~label, textarea:valid ~label {
     font-size: 14px;
-    color: #737373;
+    color: #2C3E50;
     left: 4px;
     top: -12px;
     font-weight: bold;
     background-color: #FFFFFF;
   }
 }
+
+
+// /* Smartphones (portrait and landscape) ----------- */
+// @media only screen
+// and (min-device-width : 320px)
+// and (max-device-width : 480px) {
+// /* Styles */
+// }
+
+// /* Smartphones (landscape) ----------- */
+// @media only screen
+// and (min-width : 321px) {
+// /* Styles */
+// }
+
+/* Smartphones (portrait) ----------- */
+@media only screen
+and (max-width : 320px) {
+/* Styles */
+}
+
+// /* iPads (portrait and landscape) ----------- */
+// @media only screen
+// and (min-device-width : 768px)
+// and (max-device-width : 1024px) {
+// /* Styles */
+// }
+
+// /* iPads (landscape) ----------- */
+// @media only screen
+// and (min-device-width : 768px)
+// and (max-device-width : 1024px)
+// and (orientation : landscape) {
+// /* Styles */
+// }
+
+/* iPads (portrait) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
+/* Styles */
+}
+
+/* Desktops and laptops ----------- */
+@media only screen
+and (min-width : 1224px) {
+/* Styles */
+}
+
+// /* Large screens ----------- */
+// @media only screen
+// and (min-width : 1824px) {
+// /* Styles */
+// }
+
+// /* iPhone 4 ----------- */
+// @media
+// only screen and (-webkit-min-device-pixel-ratio : 1.5),
+// only screen and (min-device-pixel-ratio : 1.5) {
+// /* Styles */
+// }

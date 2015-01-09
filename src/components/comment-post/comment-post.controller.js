@@ -21,6 +21,13 @@ angular.module('bsa')
     });
 
     $scope.postComment = function() {
+      if ($scope.comment === '' || $scope.comment === null) {
+        $scope.error = 'You cannot submit an empty comment';
+        return;
+      } else {
+        $scope.error = null;
+      }
+
       var data = {
         postId: $scope.postId,
         text: $scope.comment,

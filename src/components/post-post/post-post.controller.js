@@ -3,10 +3,10 @@
 angular.module('bsa')
   .controller('PostPostCtrl', ['$scope', '$rootScope', 'PostService', function($scope, $rootScope, PostService) {
     $scope.types = [
-      { name: 'link' },
-      { name: 'event' },
-      { name: 'job' },
-      { name: 'discussion' }
+      { name: 'Link', value: 'link' },
+      { name: 'Event', value: 'event' },
+      { name: 'Job', value: 'job' },
+      { name: 'Discussion', value: 'discussion' }
     ];
     $scope.title = '';
     $scope.url = '';
@@ -32,7 +32,7 @@ angular.module('bsa')
           $scope.error = 'Please enter a title.';
           return;
       }
-      if ($scope.type.name === 'link' && $scope.url === '') {
+      if ($scope.type.value === 'link' && $scope.url === '') {
           $scope.error = 'A URL is required if you are posting a link.';
           return;
       }
@@ -40,16 +40,22 @@ angular.module('bsa')
           $scope.error = 'Please enter a short description to help others know what your post is about quickly.';
           return;
       }
-      if ($scope.type.name !== 'link' && $scope.text === '') {
+      if ($scope.type.value !== 'link' && $scope.text === '') {
           $scope.error = 'A description is required if you are posting a job, event or a discussion.';
           return;
+      }
+
+      var httpRegex = 'http://';
+      var httpsRegex = 'https://';
+      if (!$scope.url.match(httpRegex) && !$scope.url.match(httpsRegex)) {
+        $scope.url = 'http://' + $scope.url;
       }
 
       var post = {
         title: $scope.title,
         description: $scope.description,
         url: $scope.url,
-        type: $scope.type.name,
+        type: $scope.type.value,
         text: $scope.text,
         upvotes: 0,
         commentsCount: 0,

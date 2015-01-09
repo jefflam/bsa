@@ -7,7 +7,7 @@ angular.module('bsa')
 
       $scope.postId = args.postId;
 
-      CommentService.getCommentsFrompost($scope.postId)
+      CommentService.getCommentsFromPost($scope.postId)
         .then(function(comments) {
           $scope.comments = comments;
         })

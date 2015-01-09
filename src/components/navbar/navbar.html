@@ -16,12 +16,12 @@
         <span>NUSBSA NEWS</span>
       </ul>
       <ul class="right">
-        <li><a ng-href="#" ng-click="showSignup()" ng-hide="user">SIGN UP</a></li>
-        <li><a ng-href="#" ng-click="showLogin()" ng-hide="user">LOGIN</a></li>
+        <li><a ng-href="#" ng-click="showSignup()" ng-hide="user"><i class="fa fa-bolt"></i> SIGN UP</a></li>
+        <li><a ng-href="#" ng-click="showLogin()" ng-hide="user"><i class="fa fa-sign-in"></i> LOGIN</a></li>
 
-        <li><a ng-href="#" ng-click="logout()" ng-show="user">LOGOUT</a></li>
-        <li><a ng-href="#" ng-show="user">{{ user.name | uppercase }}</a></li>
-        <li><a ng-href="#" ng-click="showPost()" ng-show="user">SUBMIT</a></li>
+        <li><a ng-href="#" ng-click="logout()" ng-show="user"><i class="fa fa-sign-out"></i> LOGOUT</a></li>
+        <li><a ng-href="#" ng-show="user"><i class="fa fa-user"></i> {{ user.name | uppercase }}</a></li>
+        <li><a ng-href="#" ng-click="showPost()" ng-show="user"><i class="fa fa-plus-circle"></i> SUBMIT</a></li>
       </ul>
     </section>
 

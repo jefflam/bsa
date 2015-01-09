@@ -1,23 +1,58 @@
 .news {
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 3px;
-  margin-top: 10px;
-  padding: 10px 0px 10px 0px;
+  margin-top: 5px;
+  padding: 5px 0px 7px 0px;
   .news-link {
     position: relative;
-    left: 26px;
-    display: inline-block;
+    left: 38px;
+    float: left;
+    width: 50%;
     .title {
       font-size: 16px;
       color: #555555;
+      display: inline-block;
+      a {
+        color: #555555;
+        &:hover {
+          color: #777777;
+        }
+        &:active, &:focus {
+          color: #333333;
+        }
+      }
       .url {
         font-size: 13px;
         color: #777777;
+      }
+      .type {
+        font-size: 10px;
+        padding: 2px 5px 2px 4px;
+        box-sizing: content-box;
+        border-radius: 3px;
+        color: #FFF;
+        font-weight: bold;
+        bottom: 2px;
+        position: relative;
+        &.link {
+          background-color: #27AE60;
+        }
+        &.event {
+          background-color: #3498DB;
+        }
+        &.job {
+          background-color: #E67E22;
+        }
+        &.discussion {
+          background-color: #34495E;
+        }
       }
     }
     .description {
       color: #777777;
       font-size: 13px;
+      display: inline-block;
+      font-style: italic;
     }
     .metadata {
       font-size: 12px;
@@ -25,52 +60,94 @@
     }
   }
   .btn {
-    color: #777777;
-    font-size: 12px;
+    color: #2C3E50;
+    font-size: 11px;
+    font-weight: bold;
     width: 40px;
     height: 40px;
-    background-color: #eeeeee;
+    border: 2px solid #2C3E50;
+    background-color: none;
     border-radius: 3px;
     text-align: center;
     position: relative;
+    z-index: 1;
+    width: 36px;
+    height: 36px;
+    border-radius: 30px;
+    transition: all 100ms ease-out;
+    -webkit-transition: all 100ms ease-out;
+    -moz-transition: all 100ms ease-out;
+    -o-transition: all 100ms ease-out;
     i {
       display: block;
       margin-bottom: -5px;
     }
     &.upvote {
-      top: -12px;
-      left: 10px;
-      display: inline-block;
+      top: 5px;
+      left: -5px;
+      float: left;
       cursor: pointer;
+      line-height: 1.4em;
+      padding-left: 1px;
+      position: absolute;
+      left: 10px;
+      &:hover {
+        background-color: #2C3E50;
+        border: 2px solid #2C3E50;
+        color: #ffffff;
+      }
       i {
         padding-top: 3px;
-        font-size: 20px;
+        font-size: 13px;
+        padding-bottom: 2px;
+      }
+      &.ng-hide-add {
+        animation: 1s tada ease;
+        -webkit-animation: 1s tada ease;
       }
       &.upvoted {
-        line-height: 3.5em;
-        background-color: #8BC762;
-        color: #ffffff;
+        line-height: 3em;
+        border: 2px solid #27AE60;
+        background-color: #ffffff;
+        color: #27AE60;
+        cursor: default;
+        &.ng-hide {
+          opacity: 0;
+        }
+        &.ng-hide-remove {
+          opacity: 0;
+          animation: 1s bounceIn ease;
+          -webkit-animation: 1s bounceIn ease;
+          animation-delay: 1s;
+          -webkit-animation-delay: 1s;
+        }
       }
     }
     &.comments {
-      top: 11px;
-      right: 10px;
+      top: 5px;
+      right: -5px;
       cursor: pointer;
+      background-color: rgba(0,0,0,0);
+      &:hover {
+        background-color: #2C3E50;
+        border: 2px solid #2C3E50;
+        color: #ffffff;
+      }
       i {
-        font-size: 14px;
-        padding-top: 7px;
-        padding-bottom: 2px;
+        font-size: 11px;
+        padding-top: 6px;
+        padding-bottom: 1px;
+        padding-left: 1px;
       }
     }
-    &.type {
-      top: 11px;
-      right: 20px;
-      cursor: pointer;
-      i {
-        font-size: 14px;
-        padding-top: 13px;
-        padding-bottom: 2px;
-      }
+  }
+}
+
+@media only screen
+and (min-width : 768px) {
+  .news {
+    .news-link {
+      width: 80%;
     }
   }
 }
