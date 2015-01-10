@@ -6,6 +6,10 @@ angular.module('bsa')
     $scope.password = '';
     $scope.error = '';
 
+    $scope.forgotPassword = function() {
+      $rootScope.$broadcast('show-forgot-password');
+    }
+
     $scope.login = function() {
       var data = {
         email: $scope.email,

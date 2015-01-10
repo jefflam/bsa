@@ -4,19 +4,22 @@
   <div class="container post-post" ng-show="postBox">
     <h4>New Post</h4>
     <p>Submit an interesting link, event, job or question.</p>
+    <div class="close-modal">
+      <i class="fa fa-close" ng-click="hideOverlay()"></i>
+    </div>
     <form>
       <div class="large-12 columns">
         <select ng-options="type.name for type in types" ng-model="type"></select>
         <div class="input-container">
-          <input required ng-model="title" type="text" id="title" placeholder="Title of your link">
+          <input required ng-model="title" type="text" id="title" placeholder="Title of your link" ng-keydown="($event.keyCode===13)?postPost():0">
           <label for="title">Title</label>
         </div>
         <div class="input-container">
-          <input required ng-model="url" type="text" ng-show="type.value==='link'" id="url" placeholder="yourURL.com">
+          <input required ng-model="url" type="text" ng-show="type.value==='link'" id="url" placeholder="yourURL.com" ng-keydown="($event.keyCode===13)?postPost():0">
           <label for="url">URL</label>
         </div>
         <div class="input-container">
-          <input required ng-model="description" type="text" placeholder="A short description of your post" id="description">
+          <input required ng-model="description" type="text" placeholder="A short description of your post" id="description" ng-keydown="($event.keyCode===13)?postPost():0">
           <label for="description">Short Description</label>
         </div>
         <div class="input-container">

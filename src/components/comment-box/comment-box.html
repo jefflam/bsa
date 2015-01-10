@@ -1,9 +1,12 @@
 <div ng-controller="CommentBoxCtrl">
   <div class="overlay" ng-click="hideOverlay()" ng-show="commentBox"></div>
 
-  <div class="container comments" ng-show="commentBox">
+  <div class="container comment-box" ng-show="commentBox">
+    <div class="close-modal">
+      <i class="fa fa-close" ng-click="hideOverlay()"></i>
+    </div>
     <div class="row news">
-      <div class="large-10 columns">
+      <div class="large-10 medium-10 small-10 columns">
         <div class="btn upvote" ng-click="upvotePost(post.$id)" ng-hide="post.upvoters[userId]">
           <i class="fa fa-chevron-up"></i>
           {{post.upvotes}}
@@ -26,7 +29,7 @@
     </div>
     <div class="row news-text" ng-hide="post.type==='link'">
       <div class="large-12 columns">
-        {{post.text}}
+        <p>{{post.text}}</p>
       </div>
     </div>
     <div ng-include="'components/comment-post/comment-post.html'"></div>

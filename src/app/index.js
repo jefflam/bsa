@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('bsa', ['ui.router', 'ngAnimate', 'firebase', 'ui.bootstrap'])
+angular.module('bsa', ['ui.router', 'ngAnimate', 'firebase'])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {
@@ -8,46 +8,36 @@ angular.module('bsa', ['ui.router', 'ngAnimate', 'firebase', 'ui.bootstrap'])
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl'
       })
-      .state('comments', {
-        url: '/:postId',
-        // templateUrl: 'app/main/main.html',
-        onEnter: function($stateParams, $state, $modal) {
-          $modal.open({
-            templateUrl: 'components/comment-box/comment-box.html',
-            resolve: {
-              item: function() { new Item(123).get(); }
-            },
-            controller: ['$scope', 'item', function($scope, item) {
-              $scope.dismiss = function() {
-                $scope.$dismiss();
-              };
-
-              $scope.save = function() {
-                item.update().then(function() {
-                  $scope.$close(true);
-                });
-              };
-            }]
-          }).result.then(function(result) {
-            if (result) {
-                return $state.transitionTo("items");
-            }
-          })
-        }
-        // onEnter: ['$modal', function($modal) {
-        //   console.log('hello');
-        //   $modal.open({
-        //     templateUrl: 'components/comment-box/comment-box.html'
-        //   });
-        // }]
-        // resolve: {
-        //   // templateUrl: 'components/comment-box/comment-box.html',
-        //   reloadOnSearch: false
-        // }
-
-
+      .state('profile', {
+        url: '/profile/:userId',
+        templateUrl: 'app/main/main.html',
+        controller: 'MainCtrl'
+      })
+      .state('post', {
+        url: '/post/:postId',
+        templateUrl: 'app/main/main.html',
+        controller: 'MainCtrl'
       });
 
+    $urlRouterProvider.deferIntercept();
     $urlRouterProvider.otherwise('/');
   })
-;
+  .run(['$rootScope', '$location', '$state', function($rootScope, $location, $state) {
+    $rootScope.$on('$locationChangeSuccess', function(e, newUrl, oldUrl) {
+      var itemId;
+
+      if ($location.path().match('post') || $location.path().match('profile')) {
+        itemId = $location.path().split('/')[2];
+      }
+
+      if ($location.path() === '/' && newUrl === $location.absUrl() && oldUrl === $location.absUrl() && oldUrl === newUrl) {
+        $state.go('home');
+      } else if ($location.path().match('post') && newUrl === $location.absUrl() && oldUrl === $location.absUrl() && oldUrl === newUrl) {
+        $state.go('post', {postId: itemId});
+      } else if ($location.path().match('profile') && newUrl === $location.absUrl() && oldUrl === $location.absUrl() && oldUrl === newUrl) {
+        $state.go('profile', {userId: itemId});
+      } else {
+        e.preventDefault();
+      }
+    });
+  }]);

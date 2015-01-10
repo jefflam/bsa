@@ -14,6 +14,16 @@
       color: #E84444;
     }
   }
+  .forgot-password {
+    p {
+      color: #999999;
+      font-style: italic;
+      cursor: pointer;
+      &:hover {
+        color: #555555;
+      }
+    }
+  }
   p {
     font-size: 14px;
     color: #777777;
@@ -28,4 +38,11 @@
 }
 .login.ng-hide-add {
   animation: 0.2s fadeOutUp ease;
+}
+
+@media only screen and (max-width: 640px) {
+  .login {
+    left: 12%;
+    width: 75%;
+  }
 }

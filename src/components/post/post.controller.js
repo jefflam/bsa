@@ -55,6 +55,9 @@ angular.module('bsa')
         });
     });
 
+    $scope.showProfile = function(userId) {
+      $rootScope.$broadcast('show-profile', {userId: userId});
+    };
     $scope.upvotePost = function(postId) {
       PostService.upvotePost(postId, $scope.userId)
         .then(function(rsp) {
@@ -64,7 +67,6 @@ angular.module('bsa')
           console.log(err);
         });
     };
-
     $scope.showComments = function(postId) {
       $rootScope.$broadcast('show-comments', { postId: postId });
     };

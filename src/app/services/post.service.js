@@ -29,9 +29,6 @@ angular.module('bsa')
         var ref = new Firebase('https://bsa.firebaseio.com/posts');
         var sync = $firebase(ref);
         var syncArray = sync.$asArray();
-        console.log(post);
-
-        console.log(post);
         syncArray.$add(post).then(function(ref) {
           ref.update({ timeSubmitted: Firebase.ServerValue.TIMESTAMP });
           q.resolve(ref);

@@ -27,12 +27,14 @@
     <script src="../bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
   </head>
-  <body>
+  <body ng-class="{noScroll: noScroll}">
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <div class="wrapper">
+    <div ng-include="'components/navbar/navbar.html'"></div>
+    <div class="wrapper main">
       <div ui-view></div>
+      <div class="push"></div>
     </div>
     <div ng-include="'components/footer/footer.html'"></div>
 
@@ -58,7 +60,6 @@
     <script src="../bower_components/fastclick/lib/fastclick.js"></script>
     <script src="../bower_components/jquery.cookie/jquery.cookie.js"></script>
     <script src="../bower_components/jquery-placeholder/jquery.placeholder.js"></script>
-    <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -66,10 +67,12 @@
     <!-- inject:js -->
     <script src="app/index.js"></script>
     <script src="components/signup/signup.controller.js"></script>
+    <script src="components/profile/profile.controller.js"></script>
     <script src="components/post-post/post-post.controller.js"></script>
     <script src="components/post/post.controller.js"></script>
     <script src="components/navbar/navbar.controller.js"></script>
     <script src="components/login/login.controller.js"></script>
+    <script src="components/forgot-password/forgot-password.controller.js"></script>
     <script src="components/comment-post/comment-post.controller.js"></script>
     <script src="components/comment-box/comment-box.controller.js"></script>
     <script src="components/comment/comment.controller.js"></script>

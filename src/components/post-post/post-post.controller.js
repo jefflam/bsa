@@ -50,6 +50,7 @@ angular.module('bsa')
       if (!$scope.url.match(httpRegex) && !$scope.url.match(httpsRegex)) {
         $scope.url = 'http://' + $scope.url;
       }
+      var userId = $scope.userId.split(':')[1];
 
       var post = {
         title: $scope.title,
@@ -61,7 +62,7 @@ angular.module('bsa')
         commentsCount: 0,
         comments: {},
         submitted: {
-          userId: $scope.userId,
+          userId: userId,
           name: $scope.user.name
         }
       };

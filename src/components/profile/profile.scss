@@ -1,0 +1,57 @@
+.profile {
+  position: fixed;
+  height: 100%;
+  width: 600px;
+  background-color: #ffffff;
+  top: 0;
+  right: 0;
+  z-index: 101;
+  box-shadow: -2px 0px 5px #cccccc;
+  overflow-y: scroll;
+  h5 {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    margin-left: 15px;
+    font-size: 24px;
+    font-weight: 100;
+  }
+  form {
+    margin-top: 20px;
+  }
+  .error {
+    p {
+      color: #E84444;
+      font-size: 14px;
+      margin-left: 15px;
+    }
+  }
+  .success {
+    p {
+      color: #389B17;
+      font-size: 14px;
+      margin-left: 15px;
+    }
+  }
+}
+.profile.ng-hide-remove {
+  animation: 0.2s fadeInRight ease;
+}
+.profile.ng-hide-add {
+  animation: 0.2s fadeOutRight ease;
+}
+
+.news-text {
+  font-size: 14px;
+  padding: 15px;
+  border-bottom: 1px solid #eeeeee;
+  color: #555555;
+  p {
+    white-space: pre;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .profile {
+    width: 100%;
+  }
+}

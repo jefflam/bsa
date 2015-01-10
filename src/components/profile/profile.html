@@ -1,0 +1,102 @@
+<div ng-controller="ProfileCtrl">
+  <div class="overlay" ng-click="hideOverlay()" ng-show="profile"></div>
+
+  <div class="container profile" ng-show="profile">
+    <div class="close-modal">
+      <i class="fa fa-close" ng-click="hideOverlay()"></i>
+    </div>
+    <h5>{{ userProfile.name }}'s Profile</h5>
+
+    <div ng-show="isCurrentUser">
+      <form ng-keydown="($event.keyCode===13)?saveProfile():0">
+        <div class="large-12 columns">
+          <div class="input-container">
+            <input required ng-model="userProfile.name" type="text" id="fullname" placeholder="Steve Jobs">
+            <label for="fullname">Full Name</label>
+          </div>
+          <div class="input-container">
+            <input required ng-model="userProfile.email" type="text" id="email" placeholder="stevejobs@apple.com">
+            <label for="email">Email</label>
+          </div>
+          <div class="input-container">
+            <input required ng-model="userProfile.matriculation" type="text" id="matriculation" placeholder="2010">
+            <label for="matriculation">Matriculation</label>
+          </div>
+          <div class="input-container">
+            <input required ng-model="userProfile.occupation" type="text" id="occupation" placeholder="Student">
+            <label for="occupation">Occupation</label>
+          </div>
+          <div class="input-container">
+            <input required ng-model="userProfile.company" type="text" id="company" placeholder="Apple">
+            <label for="company">Company</label>
+          </div>
+          <div class="input-container">
+            <input required ng-model="userProfile.industry" type="text" id="industry" placeholder="Finance">
+            <label for="industry">Industry</label>
+          </div>
+          <div class="input-container">
+            <textarea required name="bio" id="bio" rows="3" ng-model="userProfile.bio" placeholder="Write a short description about yourself"></textarea>
+            <label for="bio">Bio</label>
+          </div>
+          <a href="#" class="button default" ng-click="saveProfile()">Save Changes</a>
+        </div>
+      </form>
+      <div class="success">
+        <p>{{ success }}</p>
+      </div>
+      <div class="error">
+        <p>{{ error }}</p>
+      </div>
+      <form ng-keydown="($event.keyCode===13)?changePassword():0">
+        <div class="large-12 columns">
+          <div class="input-container">
+            <input required ng-model="currentPassword" type="password" id="currentPassword" placeholder="MyOldSecretPassword">
+            <label for="currentPassword">Current Password</label>
+          </div>
+          <div class="input-container">
+            <input required ng-model="newPassword" type="password" id="newPassword" placeholder="MyNewSecretPassword">
+            <label for="newPassword">New Password</label>
+          </div>
+          <div class="input-container">
+            <input required ng-model="newPasswordAgain" type="password" id="newPasswordAgain" placeholder="MyNewSecretPassword">
+            <label for="newPasswordAgain">New Password Again</label>
+          </div>
+          <a href="#" class="button default" ng-click="changePassword()">Change Password</a>
+        </div>
+      </form>
+    </div>
+
+    <div ng-show="isNotCurrentUser">
+      <div class="large-12 columns">
+        <div class="input-container">
+          <input required ng-model="userProfile.name" type="text" id="fullname" disabled class="disabled">
+          <label for="fullname" class="disabled">Full Name</label>
+        </div>
+        <!-- <div class="input-container">
+          <input required ng-model="userProfile.email" type="text" id="email" disabled class="disabled">
+          <label for="email" class="disabled">Email</label>
+        </div> -->
+        <div class="input-container">
+          <input required ng-model="userProfile.matriculation" type="text" id="matriculation" disabled class="disabled">
+          <label for="matriculation" class="disabled">Matriculation</label>
+        </div>
+        <div class="input-container">
+          <input required ng-model="userProfile.occupation" type="text" id="occupation" disabled class="disabled">
+          <label for="occupation" class="disabled">Occupation</label>
+        </div>
+        <div class="input-container">
+          <input required ng-model="userProfile.company" type="text" id="company" disabled class="disabled">
+          <label for="company" class="disabled">Company</label>
+        </div>
+        <div class="input-container">
+          <input required ng-model="userProfile.industry" type="text" id="industry" disabled class="disabled">
+          <label for="industry" class="disabled">Industry</label>
+        </div>
+        <div class="input-container">
+          <textarea required name="bio" id="bio" rows="5" ng-model="userProfile.bio" disabled class="disabled"></textarea>
+          <label for="bio" class="disabled">Bio</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -29,3 +29,10 @@
 .signup.ng-hide-add {
   animation: 0.2s fadeOutUp ease;
 }
+
+@media only screen and (max-width: 640px) {
+  .signup {
+    left: 12%;
+    width: 75%;
+  }
+}

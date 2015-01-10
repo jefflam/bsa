@@ -57,6 +57,16 @@
     .metadata {
       font-size: 12px;
       color: #999999;
+      a {
+        color: #2C3E50;
+        &:hover {
+          color: #2C3E50;
+          text-decoration: underline;
+        }
+        &:active, &:focus {
+          color: #2C3E50;
+        }
+      }
     }
   }
   .btn {

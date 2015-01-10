@@ -18,11 +18,18 @@ angular.module('bsa')
                   // should happen only for new users
                   if (snap.val() === null) {
                     ref.onAuth(function(authData2) {
+                      var userId = authData2.uid.split(':')[1];
                       ref.child('users').child(authData2.uid).set({
+                        id: userId,
                         email: data.email,
                         name: data.name,
                         password: authData2.password,
                         joined: Firebase.ServerValue.TIMESTAMP,
+                        matriculation: '',
+                        occupation: '',
+                        company: '',
+                        industry: '',
+                        bio: '',
                         admin: false
                       });
                       ref.child('users').child(authData.uid).once('value', function(user) {
@@ -80,6 +87,62 @@ angular.module('bsa')
         } else {
           q.reject(authData);
         }
+        return q.promise;
+      },
+      getUser: function(userId) {
+        var q = $q.defer();
+        var usersRef = new Firebase('https://bsa.firebaseio.com/users');
+
+        usersRef.child('simplelogin:'+userId).once('value', function(user) {
+          q.resolve(user.val());
+        });
+
+        return q.promise;
+      },
+      sendResetPasswordEmail: function(email) {
+        var q = $q.defer();
+        var ref = new Firebase('https://bsa.firebaseio.com');
+
+        ref.resetPassword({
+          email: email
+        }, function(err) {
+          if (err === null) {
+            q.resolve(email);
+          } else {
+            q.reject(err);
+          }
+        })
+        return q.promise;
+      },
+      editUser: function(userId, data) {
+        var q = $q.defer();
+        var refUsers = new Firebase('https://bsa.firebaseio.com/users');
+
+        refUsers.child('simplelogin:' + userId).update(data, function(err) {
+          if (err) {
+            q.reject(err);
+          } else {
+            q.resolve(data);
+          }
+        });
+
+        return q.promise;
+      },
+      changePassword: function(data) {
+        var q = $q.defer();
+        var ref = new Firebase('https://bsa.firebaseio.com');
+
+        ref.changePassword({
+          email: data.email,
+          oldPassword: data.oldPassword,
+          newPassword: data.newPassword
+        }, function(err) {
+          if (err === null) {
+            q.resolve(err);
+          } else {
+            q.reject(err);
+          }
+        });
 
         return q.promise;
       }

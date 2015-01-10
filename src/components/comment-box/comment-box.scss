@@ -1,4 +1,4 @@
-.comments {
+.comment-box {
   position: fixed;
   height: 100%;
   width: 600px;
@@ -7,6 +7,7 @@
   right: 0;
   z-index: 101;
   box-shadow: -2px 0px 5px #cccccc;
+  overflow-y: scroll;
   .news-link {
     position: relative;
     .title {
@@ -89,10 +90,10 @@
     border-bottom: 1px solid #eee;
   }
 }
-.comments.ng-hide-remove {
+.comment-box.ng-hide-remove {
   animation: 0.2s fadeInRight ease;
 }
-.comments.ng-hide-add {
+.comment-box.ng-hide-add {
   animation: 0.2s fadeOutRight ease;
 }
 
@@ -101,4 +102,13 @@
   padding: 15px;
   border-bottom: 1px solid #eeeeee;
   color: #555555;
+  p {
+    white-space: pre;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .comment-box {
+    width: 100%;
+  }
 }

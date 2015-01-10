@@ -9,6 +9,10 @@ angular.module('bsa')
       name: 'POPULAR'
     };
     $scope.postLimit = 20;
+    $scope.filtersSubMenuMobile = false;
+    $scope.postsSubMenuMobile = false;
+    $scope.profileSubMenuMobile = false;
+
 
     $scope.$on('user-login', function(evt, args) {
       $scope.user = args.user.val();
@@ -32,6 +36,9 @@ angular.module('bsa')
     $scope.showPost = function() {
       $rootScope.$broadcast('show-post');
     };
+    $scope.showProfile = function(userId) {
+      $rootScope.$broadcast('show-profile', {userId: userId});
+    };
     $scope.showFiltersSubMenu = function() {
       $scope.filtersSubMenu = true;
     };
@@ -43,6 +50,26 @@ angular.module('bsa')
     };
     $scope.hidePostsSubMenu = function() {
       $scope.postsSubMenu = false;
+    };
+    $scope.showFiltersSubMenuMobile = function() {
+      $scope.filtersSubMenuMobile = true;
+      $scope.postsSubMenuMobile = false;
+    };
+    $scope.showPostsSubMenuMobile = function() {
+      $scope.postsSubMenuMobile = true;
+      $scope.filtersSubMenuMobile = false;
+    };
+    $scope.showProfileSubMenuMobile = function() {
+      $scope.profileSubMenuMobile = true;
+    };
+    $scope.hideFiltersSubMenuMobile = function() {
+      $scope.filtersSubMenuMobile = false;
+    };
+    $scope.hidePostsSubMenuMobile = function() {
+      $scope.postsSubMenuMobile = false;
+    };
+    $scope.hideProfileSubMenuMobile = function() {
+      $scope.profileSubMenuMobile = false;
     };
     $scope.updateFilter = function(type) {
       switch (type) {

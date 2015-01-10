@@ -7,9 +7,24 @@
 @import '../components/post-post/post-post.scss';
 @import '../components/signup/signup.scss';
 @import '../components/login/login.scss';
+@import '../components/forgot-password/forgot-password.scss';
+@import '../components/profile/profile.scss';
 
 .column, .columns {
   // border: 1px solid red;
+}
+
+.noScroll {
+  overflow: hidden;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 20px;
+  color: #E46262;
+  cursor: pointer;
 }
 
 .button {
@@ -95,6 +110,9 @@ form {
   width: 100%;
   position: relative;
   input, textarea {
+    &.disabled {
+      background-color: #f5f5f5;
+    }
     &::-webkit-input-placeholder {
       color: #ffffff;
     }
@@ -141,7 +159,7 @@ form {
     cursor: text;
     transition: all 200ms ease;
   }
-  input:focus ~label, input:valid ~label, textarea:focus ~label, textarea:valid ~label {
+  input:focus ~label, input:valid ~label, textarea:focus ~label, textarea:valid ~label, label.disabled {
     font-size: 14px;
     color: #2C3E50;
     left: 4px;

@@ -1,5 +1,5 @@
 <div ng-controller="PostCtrl">
-  <div class="row news" ng-repeat="post in posts | filter: filter">
+  <div class="row news" ng-repeat="post in posts | orderBy: orderBy | filter: filter">
     <div class="large-12 columns">
       <div class="btn upvote" ng-click="upvotePost(post.$id)" ng-hide="post.upvoters[userId]">
         <i class="fa fa-chevron-up"></i>
@@ -11,7 +11,7 @@
 
       <div class="news-link">
         <div class="title">
-          <b ng-hide="post.type==='link'"><a ng-click="showComments(post.$id)" href ng-href="#/{{post.$id}}">{{post.title}}</a></b>
+          <b ng-hide="post.type==='link'"><a ng-click="showComments(post.$id)" href ng-href="#/post/{{post.$id}}">{{post.title}}</a></b>
           <b ng-show="post.type==='link'"><a href="{{post.url}}" target="_blank">{{post.title}}</a></b>
           <span class="url" ng-show="post.type==='link'">({{post.url | urlShorten}})</span>
           <span class="type link" ng-show="post.type==='link'">
@@ -31,14 +31,14 @@
           {{post.description}}
         </div>
         <div class="metadata">
-          Submitted {{post.timeSubmitted | fromNow}} by {{post.submitted.name}}
+          Submitted {{post.timeSubmitted | fromNow}} by <a href="#" ng-href="#/profile/{{post.submitted.userId}}" ng-click="showProfile(post.submitted.userId)">{{post.submitted.name}}</a>
         </div>
       </div>
 
-      <div class="btn comments right" ng-click="showComments(post.$id)">
+      <a class="btn comments right" ng-click="showComments(post.$id)" ng-href="#/post/{{post.$id}}">
         <i class="fa fa-comments"></i>
         {{post.commentsCount}}
-      </div>
+      </a>
     </div>
   </div>
 </div>
