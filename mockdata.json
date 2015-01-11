@@ -1,6 +1,7 @@
 {
   "users": {
     "user1": {
+      "id": "user1",
       "name": "Kevin Spacey",
       "email": "kevinspacey@gmail.com",
       "password": "hashedpassword",
@@ -8,7 +9,7 @@
       "matriculation": "2010",
       "commencement": "2014",
       "profilePicture": "http://google.com/profile",
-      "admin": true,
+      "admin": false,
       "occupation": "Sales Engineer",
       "organization": "Symphony",
       "posts": {
@@ -21,6 +22,7 @@
       }
     },
     "user2": {
+      "id": "user2",
       "name": "Brad Pitt",
       "email": "bradpitth@gmail.com",
       "password": "hashedpassword",
@@ -28,7 +30,7 @@
       "matriculation": "2010",
       "commencement": "2014",
       "profilePicture": "http://google.com/profile",
-      "admin": true,
+      "admin": false,
       "occupation": "Actor",
       "organization": "Hollywood",
       "posts": {
@@ -41,6 +43,7 @@
       }
     },
     "user3": {
+      "id": "user3",
       "name": "Emma Watson",
       "email": "emma@gmail.com",
       "password": "hashedpassword",
@@ -48,7 +51,7 @@
       "matriculation": "2010",
       "commencement": "2014",
       "profilePicture": "http://google.com/profile",
-      "admin": true,
+      "admin": false,
       "occupation": "Student",
       "organization": "Brown University",
       "posts": {
@@ -175,19 +178,31 @@
   },
   "comments": {
     "comment1": {
-      "post": "post1",
-      "author": "user1",
-      "text": "Hello this is Kevin"
+      "postId": "post1",
+      "commented": {
+        "name": "Kevin Spacey",
+        "userId": "user1"
+      },
+      "text": "Hello this is Kevin",
+      "timeSubmitted": 1419920458667
     },
     "comment2": {
-      "post": "post1",
-      "author": "user2",
-      "text": "Hello this is Brad"
+      "postId": "post1",
+      "commented": {
+        "name": "Brad Pitt",
+        "userId": "user2"
+      },
+      "text": "Hello this is Brad",
+      "timeSubmitted": 1419920458667
     },
     "comment3": {
-      "post": "post2",
-      "author": "user3",
-      "text": "Hello this is Emma"
+      "postId": "post2",
+      "commented": {
+        "name": "Emma Stone",
+        "userId": "user3"
+      },
+      "text": "Hello this is Emma",
+      "timeSubmitted": 1419920458667
     }
   }
 }

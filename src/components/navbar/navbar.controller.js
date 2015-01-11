@@ -28,6 +28,7 @@ angular.module('bsa')
     });
 
     $scope.showSignup = function() {
+      console.log('signup')
       $rootScope.$broadcast('show-signup');
     };
     $scope.showLogin = function() {

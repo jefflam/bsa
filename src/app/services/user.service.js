@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('bsa')
-  .factory('UserService', ['$http', '$q', '$firebase', function($http, $q, $firebase) {
+  .factory('UserService', ['$http', '$q', '$firebase', 'FIREBASE_URL', function($http, $q, $firebase, FIREBASE_URL) {
     var service = {
       createNewUser: function(data) {
         var q = $q.defer();
-        var ref = new Firebase('https://bsa.firebaseio.com');
+        var ref = new Firebase(FIREBASE_URL);
         ref.createUser(data, function(err) {
           if (err === null) {
             console.log('User created successfully.', err);
@@ -54,7 +54,7 @@ angular.module('bsa')
       },
       userLogin: function(data) {
         var q = $q.defer();
-        var ref = new Firebase('https://bsa.firebaseio.com');
+        var ref = new Firebase(FIREBASE_URL);
         ref.authWithPassword(data, function(err, authData) {
           if (err === null) {
             console.log('Logged in succesfully.');
@@ -70,14 +70,14 @@ angular.module('bsa')
       },
       userLogout: function() {
         var q = $q.defer();
-        var ref = new Firebase('https://bsa.firebaseio.com');
+        var ref = new Firebase(FIREBASE_URL);
         ref.unauth();
         q.resolve();
         return q.promise;
       },
       getAuth: function() {
         var q = $q.defer();
-        var ref = new Firebase('https://bsa.firebaseio.com');
+        var ref = new Firebase(FIREBASE_URL);
         var authData = ref.getAuth();
 
         if (authData) {
@@ -91,7 +91,7 @@ angular.module('bsa')
       },
       getUser: function(userId) {
         var q = $q.defer();
-        var usersRef = new Firebase('https://bsa.firebaseio.com/users');
+        var usersRef = new Firebase(FIREBASE_URL + 'users');
 
         usersRef.child('simplelogin:'+userId).once('value', function(user) {
           q.resolve(user.val());
@@ -101,7 +101,7 @@ angular.module('bsa')
       },
       sendResetPasswordEmail: function(email) {
         var q = $q.defer();
-        var ref = new Firebase('https://bsa.firebaseio.com');
+        var ref = new Firebase(FIREBASE_URL);
 
         ref.resetPassword({
           email: email
@@ -116,7 +116,7 @@ angular.module('bsa')
       },
       editUser: function(userId, data) {
         var q = $q.defer();
-        var refUsers = new Firebase('https://bsa.firebaseio.com/users');
+        var refUsers = new Firebase(FIREBASE_URL + 'users');
 
         refUsers.child('simplelogin:' + userId).update(data, function(err) {
           if (err) {
@@ -130,7 +130,7 @@ angular.module('bsa')
       },
       changePassword: function(data) {
         var q = $q.defer();
-        var ref = new Firebase('https://bsa.firebaseio.com');
+        var ref = new Firebase(FIREBASE_URL);
 
         ref.changePassword({
           email: data.email,

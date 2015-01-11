@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('bsa')
-  .factory('CommentService', ['$http', '$q', '$firebase', function($http, $q, $firebase) {
+  .factory('CommentService', ['$http', '$q', '$firebase', 'FIREBASE_URL', function($http, $q, $firebase, FIREBASE_URL) {
     var service = {
       getCommentsFromPost: function(postId) {
         var q = $q.defer();
-        var commentsRef = new Firebase('https://bsa.firebaseio.com/comments');
-        var postRef = new Firebase('https://bsa.firebaseio.com/posts');
+        var commentsRef = new Firebase(FIREBASE_URL + 'comments');
+        var postRef = new Firebase(FIREBASE_URL + 'posts');
         var postCommentsRef = postRef.child(postId).child('comments');
         var comments = [];
 
@@ -42,9 +42,9 @@ angular.module('bsa')
       postComment: function(data) {
         var q = $q.defer();
         var postId = data.postId;
-        var commentsRef = new Firebase('https://bsa.firebaseio.com/comments');
+        var commentsRef = new Firebase(FIREBASE_URL + 'comments');
         var commentsSync = $firebase(commentsRef);
-        var postRef = new Firebase('https://bsa.firebaseio.com/posts');
+        var postRef = new Firebase(FIREBASE_URL + 'posts');
         commentsSync.$push(data).then(function(newChildRef) {
           newChildRef.update({ timeSubmitted: Firebase.ServerValue.TIMESTAMP });
           // Set reference for comment in posts in nested commments

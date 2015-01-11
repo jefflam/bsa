@@ -4,17 +4,17 @@ angular.module('bsa', ['ui.router', 'ngAnimate', 'firebase'])
   .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {
-        url: '/#',
+        url: '/',
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl'
       })
       .state('profile', {
-        url: '/#/profile/:userId',
+        url: '/profile/:userId',
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl'
       })
       .state('post', {
-        url: '/#/post/:postId',
+        url: '/post/:postId',
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl'
       });
@@ -30,7 +30,12 @@ angular.module('bsa', ['ui.router', 'ngAnimate', 'firebase'])
         itemId = $location.path().split('/')[2];
       }
 
-      if ($location.path() === '/#' && newUrl === $location.absUrl() && oldUrl === $location.absUrl() && oldUrl === newUrl) {
+      if (
+        ($location.path() === '' || $location.path() === '/' || $location.path() === '/#')
+        && (newUrl === $location.absUrl())
+        && (oldUrl === $location.absUrl())
+        && (oldUrl === newUrl)
+      ) {
         $state.go('home');
       } else if ($location.path().match('post') && newUrl === $location.absUrl() && oldUrl === $location.absUrl() && oldUrl === newUrl) {
         $state.go('post', {postId: itemId});
@@ -40,4 +45,7 @@ angular.module('bsa', ['ui.router', 'ngAnimate', 'firebase'])
         e.preventDefault();
       }
     });
-  }]);
+  }])
+  // .constant('FIREBASE_URL', 'https://bsa-dev.firebaseio.com/');
+  .constant('FIREBASE_URL', 'https://bsa-staging.firebaseio.com/');
+  // .constant('FIREBASE_URL', 'https://bsa.firebaseio.com/');

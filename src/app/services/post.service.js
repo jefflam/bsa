@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('bsa')
-  .factory('PostService', ['$http', '$q', '$firebase', function($http, $q, $firebase) {
+  .factory('PostService', ['$http', '$q', '$firebase', 'FIREBASE_URL', function($http, $q, $firebase, FIREBASE_URL) {
     var service = {
       getPosts: function(limit) {
         var q = $q.defer();
-        var ref = new Firebase('https://bsa.firebaseio.com/posts');
+        var ref = new Firebase(FIREBASE_URL + 'posts');
         var ref = ref.orderByChild('timeSubmitted').limitToLast(limit);
         var sync = $firebase(ref);
         var syncArray = sync.$asArray();
@@ -17,7 +17,7 @@ angular.module('bsa')
       },
       getPost: function(postId) {
         var q = $q.defer();
-        var ref = new Firebase('https://bsa.firebaseio.com/posts/' + postId);
+        var ref = new Firebase(FIREBASE_URL + 'posts/' + postId);
         var sync = $firebase(ref);
         var syncObject = sync.$asObject();
 
@@ -26,7 +26,7 @@ angular.module('bsa')
       },
       postPost: function(post) {
         var q = $q.defer();
-        var ref = new Firebase('https://bsa.firebaseio.com/posts');
+        var ref = new Firebase(FIREBASE_URL + 'posts');
         var sync = $firebase(ref);
         var syncArray = sync.$asArray();
         syncArray.$add(post).then(function(ref) {
@@ -38,8 +38,8 @@ angular.module('bsa')
       },
       upvotePost: function(postId, userId) {
         var q = $q.defer();
-        var postsRef = new Firebase('https://bsa.firebaseio.com/posts');
-        var usersRef = new Firebase('https://bsa.firebaseio.com/users');
+        var postsRef = new Firebase(FIREBASE_URL + 'posts');
+        var usersRef = new Firebase(FIREBASE_URL + 'users');
         // var syncpostObject = $firebase(postsRef.child(postId)).$asObject();
         // var syncUserObject = $firebase(usersRef.child(userId)).$asObject();
 
