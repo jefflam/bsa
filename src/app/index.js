@@ -1,27 +1,27 @@
 'use strict';
 
 angular.module('bsa', ['ui.router', 'ngAnimate', 'firebase'])
-  .config(function ($stateProvider, $urlRouterProvider) {
+  .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {
-        url: '/',
+        url: '/#',
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl'
       })
       .state('profile', {
-        url: '/profile/:userId',
+        url: '/#/profile/:userId',
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl'
       })
       .state('post', {
-        url: '/post/:postId',
+        url: '/#/post/:postId',
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl'
       });
 
     $urlRouterProvider.deferIntercept();
-    $urlRouterProvider.otherwise('/');
-  })
+    $urlRouterProvider.otherwise('/#');
+  }])
   .run(['$rootScope', '$location', '$state', function($rootScope, $location, $state) {
     $rootScope.$on('$locationChangeSuccess', function(e, newUrl, oldUrl) {
       var itemId;
@@ -30,7 +30,7 @@ angular.module('bsa', ['ui.router', 'ngAnimate', 'firebase'])
         itemId = $location.path().split('/')[2];
       }
 
-      if ($location.path() === '/' && newUrl === $location.absUrl() && oldUrl === $location.absUrl() && oldUrl === newUrl) {
+      if ($location.path() === '/#' && newUrl === $location.absUrl() && oldUrl === $location.absUrl() && oldUrl === newUrl) {
         $state.go('home');
       } else if ($location.path().match('post') && newUrl === $location.absUrl() && oldUrl === $location.absUrl() && oldUrl === newUrl) {
         $state.go('post', {postId: itemId});
