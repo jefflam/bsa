@@ -51,14 +51,18 @@
       <p class="logo"><a href="/#">NUSBSA NEWS</a></p>
     </div>
     <div class="menu-left">
-      <i class="fa {{filter.icon}}" ng-click="showFiltersSubMenuMobile()" ng-hide="filtersSubMenuMobile"></i>
-      <i class="fa {{filter.icon}}" ng-click="hideFiltersSubMenuMobile()" ng-show="filtersSubMenuMobile"></i>
-      <i class="fa fa-eye" ng-click="showPostsSubMenuMobile()" ng-hide="postsSubMenuMobile"></i>
-      <i class="fa fa-eye" ng-click="hidePostsSubMenuMobile()" ng-show="postsSubMenuMobile"></i>
+      <ul>
+        <li ng-click="showFiltersSubMenuMobile()" ng-hide="filtersSubMenuMobile"><i class="fa {{filter.icon}}"></i></li>
+        <li ng-click="hideFiltersSubMenuMobile()" ng-show="filtersSubMenuMobile"><i class="fa {{filter.icon}}"></i></li>
+        <li ng-click="showPostsSubMenuMobile()" ng-hide="postsSubMenuMobile"><i class="fa fa-eye"></i></li>
+        <li ng-click="hidePostsSubMenuMobile()" ng-show="postsSubMenuMobile"><i class="fa fa-eye"></i></li>
+      </ul>
     </div>
     <div class="menu-right">
-      <i class="fa fa-bars" ng-click="showProfileSubMenuMobile()" ng-hide="profileSubMenuMobile"></i>
-      <i class="fa fa-bars" ng-click="hideProfileSubMenuMobile()" ng-show="profileSubMenuMobile"></i>
+      <ul>
+        <li ng-click="showProfileSubMenuMobile()" ng-hide="profileSubMenuMobile"><i class="fa fa-bars"></i></li>
+        <li ng-click="hideProfileSubMenuMobile()" ng-show="profileSubMenuMobile"><i class="fa fa-bars"></i></li>
+      </ul>
     </div>
     <div class="sub-menu left filter" ng-show="filtersSubMenuMobile">
       <ul class="icons">

@@ -40,16 +40,6 @@
   animation: 0.2s fadeOutRight ease;
 }
 
-.news-text {
-  font-size: 14px;
-  padding: 15px;
-  border-bottom: 1px solid #eeeeee;
-  color: #555555;
-  p {
-    white-space: pre;
-  }
-}
-
 @media only screen and (max-width: 640px) {
   .profile {
     width: 100%;

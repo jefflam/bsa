@@ -152,20 +152,26 @@
         text-align: center;
         margin-top: 10px;
       }
-      .menu-left {
+      .menu-left, .menu-right {
         position: absolute;
         top: 0;
-        left: 20px;
         cursor: pointer;
-        i.fa-eye {
-          margin-left: 20px;
+        ul {
+          margin: 0;
+          li {
+            width: 44px;
+            height: 44px;
+            display: inline-block;
+            padding-top: 9px;
+            padding-left: 14px;
+          }
         }
       }
+      .menu-left {
+        left: 0px;
+      }
       .menu-right {
-        position: absolute;
-        top: 0;
-        right: 20px;
-        cursor: pointer;
+        right: 0px;
       }
       .sub-menu {
         background-color: #2C3E50;
@@ -196,6 +202,12 @@
           ul li a {
             padding-right: 5px;
           }
+        }
+        &.ng-hide-remove {
+          animation: 0.2s fadeIn ease;
+        }
+        &.ng-hide-add {
+          animation: 0.2s fadeOut ease;
         }
       }
     }
