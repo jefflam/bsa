@@ -1,11 +1,11 @@
 <div ng-controller="PostCtrl">
   <div class="row news" ng-repeat="post in posts | orderBy: order | filter: filter">
     <div class="large-12 columns">
-      <div class="btn upvote" ng-click="upvotePost(post.$id)" ng-hide="post.upvoters[userId]">
+      <div class="btn upvote" ng-click="upvotePost(post.$id)" ng-hide="!user || post.upvoters[userId]">
         <i class="fa fa-chevron-up"></i>
         {{post.upvotes}}
       </div>
-      <div class="btn upvote upvoted" ng-show="post.upvoters[userId]">
+      <div class="btn upvote upvoted" ng-show="post.upvoters[userId] || !user">
         {{post.upvotes}}
       </div>
 

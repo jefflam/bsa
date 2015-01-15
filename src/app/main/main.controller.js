@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('bsa')
-  .controller('MainCtrl', ['$scope', '$rootScope', '$state', '$timeout', 'UserService', function ($scope, $rootScope, $state, $timeout, UserService) {
+  .controller('MainCtrl', ['$scope', '$rootScope', '$state', '$timeout', '$location', 'UserService', function ($scope, $rootScope, $state, $timeout, $location, UserService) {
     $scope.commentBox = false;
     $scope.signupBox = false;
     $scope.loginBox = false;
@@ -63,8 +63,17 @@ angular.module('bsa')
     $scope.$on('user-logout', function(evt, args) {
       $scope.user = null;
     });
+    $rootScope.$on('$locationChangeSuccess', function(e, newUrl, oldUrl) {
+      if ($location.path() === '' || $location.path() === '/' || $location.path() === '/#') {
+        hideOverlay();
+      }
+    });
 
     $scope.hideOverlay = function() {
+      hideOverlay();
+    }
+
+    var hideOverlay = function() {
       $scope.commentBox = false;
       $scope.signupBox = false;
       $scope.loginBox = false;
