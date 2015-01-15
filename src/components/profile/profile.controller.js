@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('bsa')
-  .controller('ProfileCtrl', ['$scope', '$rootScope', '$timeout', 'UserService', function($scope, $rootScope, $timeout, UserService) {
+  .controller('ProfileCtrl', ['$scope', '$rootScope', '$timeout', 'UserService', 'MessageService', function($scope, $rootScope, $timeout, UserService, MessageService) {
     $scope.isCurrentUser = false;
     $scope.isNotCurrentUser = true;
     $scope.error = null;
@@ -9,6 +9,7 @@ angular.module('bsa')
     $scope.currentPassword = null;
     $scope.newPassword = null;
     $scope.newPasswordAgain = null;
+    $scope.message = {};
 
     $scope.$on('user-login', function(evt, args) {
       $scope.user = args.user.val();
@@ -62,7 +63,7 @@ angular.module('bsa')
           $scope.error = err.message;
           $scope.success = null;
           $timeout(function() {
-          $scope.error = null;
+            $scope.error = null;
         }, 3000);
         });
     };
@@ -108,6 +109,47 @@ angular.module('bsa')
           $scope.success = null;
           $timeout(function() {
             $scope.error = null;
+          }, 3000);
+        });
+    };
+
+    $scope.sendMessage = function() {
+      if ($scope.message.message === null || $scope.message.message === '') {
+        $scope.message.error = 'Please enter a message you want to send.';
+        $timeout(function() {
+          $scope.message.error = null;
+        }, 3000);
+        return;
+      }
+
+      var data = {
+        from: {
+          id: $scope.user.id,
+          name: $scope.user.name,
+          email: $scope.user.email
+        },
+        to: {
+          id: $scope.userProfile.id,
+          name: $scope.userProfile.name,
+          email: $scope.userProfile.email
+        },
+        message: $scope.message.message
+      };
+
+      MessageService.sendMessageViaEmail(data)
+        .then(function(rsp) {
+          $scope.message.success = 'Your message has been sent successfully.';
+          $scope.message.error = null;
+          $scope.message.message = null;
+          $timeout(function() {
+            $scope.message.success = null;
+          }, 3000);
+        })
+        .catch(function(err) {
+          $scope.message.success = null;
+          $scope.message.error = err.message;
+          $timeout(function() {
+            $scope.message.error = null;
           }, 3000);
         });
     };
