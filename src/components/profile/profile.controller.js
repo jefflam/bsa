@@ -14,10 +14,17 @@ angular.module('bsa')
     $scope.$on('user-login', function(evt, args) {
       $scope.user = args.user.val();
       $scope.userId = args.user.key();
+      $scope.admin = $scope.user.admin;
+    });
+    $scope.$on('user-logout', function(evt, args) {
+      $scope.user = null;
+      $scope.userId = null;
+      $scope.admin = false;
     });
     $scope.$on('signup-success', function(evt, args) {
       $scope.user = args.user.val();
       $scope.userId = args.user.key();
+      $scope.admin = $scope.user.admin;
     });
     $scope.$on('show-profile', function(evt, args) {
       $scope.userId = args.userId;
@@ -152,5 +159,12 @@ angular.module('bsa')
             $scope.message.error = null;
           }, 3000);
         });
+    };
+
+    $scope.banUser = function(userId) {
+      UserService.banUser(userId);
+    };
+    $scope.unbanUser = function(userId) {
+      UserService.unbanUser(userId);
     };
   }]);

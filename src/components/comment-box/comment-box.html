@@ -4,6 +4,7 @@
   <div class="container comment-box" ng-show="commentBox">
     <div class="close-modal">
       <i class="fa fa-close" ng-click="hideOverlay()"></i>
+      <i class="fa fa-trash" ng-click="removePost(post.$id)" ng-show="admin"></i>
     </div>
     <div class="row news">
       <div class="large-10 medium-10 small-10 columns">

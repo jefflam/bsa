@@ -46,18 +46,31 @@ angular.module('bsa')
         var commentsSync = $firebase(commentsRef);
         var postRef = new Firebase(FIREBASE_URL + 'posts');
         commentsSync.$push(data).then(function(newChildRef) {
-          newChildRef.update({ timeSubmitted: Firebase.ServerValue.TIMESTAMP });
+          var commentId = newChildRef.key();
+          newChildRef.update({
+            timeSubmitted: Firebase.ServerValue.TIMESTAMP,
+            id: commentId
+          });
           // Set reference for comment in posts in nested commments
           var commentsCount = postRef.child(postId + '/commentsCount');
           postRef.child(postId + '/comments/' + newChildRef.key()).set(true);
           commentsCount.transaction(function(currentValue) {
-            q.resolve(newChildRef);
+            q.resolve(newChildRef.key());
             return (currentValue || 0) + 1;
           });
         });
 
         return q.promise;
       },
+      removeComment: function(commentId) {
+        var q = $q.defer();
+        var commentsRef = new Firebase(FIREBASE_URL + 'comments');
+
+        commentsRef.child(commentId).update({text: 'Comment deleted.'});
+        q.resolve(commentsRef);
+
+        return q.promise;
+      }
     };
     return service;
   }]);

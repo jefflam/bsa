@@ -48,6 +48,9 @@ angular.module('bsa')
       $scope.postBox = false;
       $rootScope.noScroll = false;
     });
+    $scope.$on('post-remove', function(evt, args) {
+      hideOverlay();
+    });
     $scope.$on('signup-success', function(evt, args) {
       $scope.user = args.user.val();
       $scope.userId = args.user.key();

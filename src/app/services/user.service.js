@@ -30,7 +30,8 @@ angular.module('bsa')
                         company: '',
                         industry: '',
                         bio: '',
-                        admin: false
+                        admin: false,
+                        banned: false
                       });
                       ref.child('users').child(authData.uid).once('value', function(user) {
                         q.resolve(user);
@@ -59,7 +60,14 @@ angular.module('bsa')
           if (err === null) {
             console.log('Logged in succesfully.');
             ref.child('users').child(authData.uid).once('value', function(user) {
-              q.resolve(user);
+              if (user.val().banned === true) {
+                console.log('User is banned.');
+                var err = {};
+                err.message = 'Your account is banned.';
+                q.reject(err);
+              } else {
+                q.resolve(user);
+              }
             });
           } else {
             console.log('Login failed: ', err);
@@ -82,7 +90,12 @@ angular.module('bsa')
 
         if (authData) {
           ref.child('users').child(authData.uid).once('value', function(user) {
-            q.resolve(user);
+            if (user.val().banned === true) {
+              ref.unauth();
+              q.reject();
+            } else {
+              q.resolve(user);
+            }
           });
         } else {
           q.reject(authData);
@@ -141,6 +154,34 @@ angular.module('bsa')
             q.resolve(err);
           } else {
             q.reject(err);
+          }
+        });
+
+        return q.promise;
+      },
+      banUser: function(userId) {
+        var q = $q.defer();
+        var refUsers = new Firebase(FIREBASE_URL + 'users');
+
+        refUsers.child('simplelogin:' + userId).update({banned: true}, function(err) {
+          if (err) {
+            q.reject(err);
+          } else {
+            q.resolve();
+          }
+        });
+
+        return q.promise;
+      },
+      unbanUser: function(userId) {
+        var q = $q.defer();
+        var refUsers = new Firebase(FIREBASE_URL + 'users');
+
+        refUsers.child('simplelogin:' + userId).update({banned: false}, function(err) {
+          if (err) {
+            q.reject(err);
+          } else {
+            q.resolve();
           }
         });
 

@@ -7,14 +7,17 @@ angular.module('bsa')
     $scope.$on('user-login', function(evt, args) {
       $scope.user = args.user.val();
       $scope.userId = args.user.key();
+      $scope.admin = $scope.user.admin;
     });
     $scope.$on('user-logout', function(evt, args) {
       $scope.user = null;
       $scope.userId = null;
+      $scope.admin = false;
     });
     $scope.$on('signup-success', function(evt, args) {
       $scope.user = args.user.val();
       $scope.userId = args.user.key();
+      $scope.admin = $scope.user.admin;
     });
 
     // By default, show 20 posts
@@ -36,7 +39,6 @@ angular.module('bsa')
       $scope.userId = args.user.key();
     });
     $scope.$on('post-filter', function(evt, args) {
-      console.log(args);
       if (args.filter === 'popular') {
         $scope.filter = '';
         $scope.order = ['-upvotes', '-timeSubmitted'];

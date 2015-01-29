@@ -60,6 +60,20 @@ angular.module('bsa')
           }
         });
         return q.promise;
+      },
+      removePost: function(postId) {
+        var q = $q.defer();
+        var postsRef = new Firebase(FIREBASE_URL + 'posts');
+
+        postsRef.child(postId).remove(function(err) {
+          if (err) {
+            q.reject(err);
+          } else {
+            q.resolve(err);
+          }
+        });
+
+        return q.promise;
       }
     };
     return service;

@@ -40,6 +40,7 @@ angular.module('bsa')
       CommentService.postComment(data)
         .then(function(rsp) {
           $scope.comment = null;
+          data.id = rsp; // rsp returns the id of the comment
           $rootScope.$broadcast('add-comment', {comment: data});
         })
         .catch(function(err) {

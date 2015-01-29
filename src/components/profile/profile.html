@@ -6,6 +6,11 @@
       <i class="fa fa-close" ng-click="hideOverlay()"></i>
     </div>
     <h5>{{ userProfile.name }}'s Profile</h5>
+    <div class="large-12 columns">
+      {{ userProfile.banned }}
+      <a href="" ng-show="admin" ng-click="banUser(userProfile.id)">Ban User</a>
+      <a href="" ng-show="admin" ng-click="unbanUser(userProfile.id)">Unban User</a>
+    </div>
     <hr>
     <div ng-show="isCurrentUser">
       <form ng-keydown="($event.keyCode===13)?saveProfile():0">

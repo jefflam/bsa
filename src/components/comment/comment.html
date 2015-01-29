@@ -2,7 +2,7 @@
   <div class="row clear comment" ng-repeat="comment in comments">
     <div class="col col-12">
       <div class="message">{{comment.text}}</div>
-      <div class="author">{{comment.timeSubmitted | fromNow }} by {{comment.commented.name}}</div>
+      <div class="author">{{comment.timeSubmitted | fromNow }} by {{comment.commented.name}} <a href="" ng-show="admin" ng-click="removeComment(comment)">Delete Comment</a></div>
     </div>
   </div>
 </div>
