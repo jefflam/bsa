@@ -47,5 +47,5 @@ angular.module('bsa', ['ui.router', 'ngAnimate', 'firebase'])
     });
   }])
   // .constant('FIREBASE_URL', 'https://bsa-dev.firebaseio.com/');
-  .constant('FIREBASE_URL', 'https://bsa-staging.firebaseio.com/');
-  // .constant('FIREBASE_URL', 'https://bsa.firebaseio.com/');
+  // .constant('FIREBASE_URL', 'https://bsa-staging.firebaseio.com/');
+  .constant('FIREBASE_URL', 'https://bsa.firebaseio.com/');
