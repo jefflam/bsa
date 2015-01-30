@@ -8,47 +8,47 @@
 
     <section class="top-bar-section">
       <ul class="left icons">
-        <li ng-mouseover="showFiltersSubMenu()" ng-mouseout="hideFiltersSubMenu()"><a ng-href="#"><i class="fa {{filter.icon}}"></i> {{filter.name}} <i class="fa fa-caret-down"></i></a> </li>
+        <li ng-mouseover="showFiltersSubMenu()" ng-mouseout="hideFiltersSubMenu()"><a ng-href=""><i class="fa {{filter.icon}}"></i> {{filter.name}} <i class="fa fa-caret-down"></i></a> </li>
 
-        <li ng-mouseover="showPostsSubMenu()" ng-mouseout="hidePostsSubMenu()"><a ng-href="#"><i class="fa fa-eye"></i> {{postLimit}} POSTS <i class="fa fa-caret-down"></i></a> </li>
+        <li ng-mouseover="showPostsSubMenu()" ng-mouseout="hidePostsSubMenu()"><a ng-href=""><i class="fa fa-eye"></i> {{postLimit}} POSTS <i class="fa fa-caret-down"></i></a> </li>
       </ul>
       <ul class="middle">
-        <span class="logo"><a href="/#">NUSBSA NEWS</a></span>
+        <span class="logo"><a href="/#">BSA CONNECT</a></span>
       </ul>
       <ul class="right">
-        <li><a ng-href="#" ng-click="showSignup()" ng-hide="user"><i class="fa fa-bolt"></i> SIGN UP</a></li>
-        <li><a ng-href="#" ng-click="showLogin()" ng-hide="user"><i class="fa fa-sign-in"></i> LOGIN</a></li>
+        <li><a ng-href="" ng-click="showSignup()" ng-hide="user"><i class="fa fa-bolt"></i> SIGN UP</a></li>
+        <li><a ng-href="" ng-click="showLogin()" ng-hide="user"><i class="fa fa-sign-in"></i> LOGIN</a></li>
 
-        <li><a ng-href="#" ng-click="logout()" ng-show="user"><i class="fa fa-sign-out"></i> LOGOUT</a></li>
+        <li><a ng-href="" ng-click="logout()" ng-show="user"><i class="fa fa-sign-out"></i> LOGOUT</a></li>
         <li><a ng-href="#/profile/{{user.id}}" ng-click="showProfile(user.id)" ng-show="user" href=""><i class="fa fa-user"></i> {{ user.name | uppercase }}</a></li>
-        <li><a ng-href="#" ng-click="showPost()" ng-show="user"><i class="fa fa-plus-circle"></i> SUBMIT</a></li>
+        <li><a ng-href="" ng-click="showPost()" ng-show="user"><i class="fa fa-plus-circle"></i> SUBMIT</a></li>
       </ul>
     </section>
 
     <section class="sub-menu filter" ng-show="filtersSubMenu" ng-mouseover="showFiltersSubMenu()" ng-mouseout="hideFiltersSubMenu()">
       <ul class="icons">
-        <li><a ng-href="#" ng-click="updateFilter('popular')"><i class="fa fa-star"></i> POPULAR </a> </li>
-        <li><a ng-href="#" ng-click="updateFilter('new')"><i class="fa fa-rss"></i> NEWEST </a> </li>
-        <li><a ng-href="#" ng-click="updateFilter('link')"><i class="fa fa-link"></i> LINKS</a></li>
-        <li><a ng-href="#" ng-click="updateFilter('event')"><i class="fa fa-calendar"></i> EVENTS</a></li>
-        <li><a ng-href="#" ng-click="updateFilter('job')"><i class="fa fa-dollar"></i> JOBS</a></li>
-        <li><a ng-href="#" ng-click="updateFilter('discussion')"><i class="fa fa-comment"></i> DISCUSSIONS</a></li>
+        <li><a ng-href="" ng-click="updateFilter('popular')"><i class="fa fa-star"></i> POPULAR </a> </li>
+        <li><a ng-href="" ng-click="updateFilter('new')"><i class="fa fa-rss"></i> NEWEST </a> </li>
+        <li><a ng-href="" ng-click="updateFilter('link')"><i class="fa fa-link"></i> LINKS</a></li>
+        <li><a ng-href="" ng-click="updateFilter('event')"><i class="fa fa-calendar"></i> EVENTS</a></li>
+        <li><a ng-href="" ng-click="updateFilter('job')"><i class="fa fa-dollar"></i> JOBS</a></li>
+        <li><a ng-href="" ng-click="updateFilter('discussion')"><i class="fa fa-comment"></i> DISCUSSIONS</a></li>
       </ul>
     </section>
 
     <section class="sub-menu posts" ng-show="postsSubMenu" ng-mouseover="showPostsSubMenu()" ng-mouseout="hidePostsSubMenu()">
       <ul class="icons">
-        <li><a ng-href="#" ng-click="updatePosts(10)">10 POSTS </a> </li>
-        <li><a ng-href="#" ng-click="updatePosts(20)">20 POSTS </a> </li>
-        <li><a ng-href="#" ng-click="updatePosts(50)">50 POSTS </a> </li>
-        <li><a ng-href="#" ng-click="updatePosts(100)">100 POSTS </a> </li>
+        <li><a ng-href="" ng-click="updatePosts(10)">10 POSTS </a> </li>
+        <li><a ng-href="" ng-click="updatePosts(20)">20 POSTS </a> </li>
+        <li><a ng-href="" ng-click="updatePosts(50)">50 POSTS </a> </li>
+        <li><a ng-href="" ng-click="updatePosts(100)">100 POSTS </a> </li>
       </ul>
     </section>
   </nav>
 
   <nav class="top-bar mobile">
     <div class="title">
-      <p class="logo"><a href="/#">NUSBSA NEWS</a></p>
+      <p class="logo"><a href="/#">BSA CONNECT</a></p>
     </div>
     <div class="menu-left">
       <ul>
@@ -66,30 +66,30 @@
     </div>
     <div class="sub-menu left filter" ng-show="filtersSubMenuMobile">
       <ul class="icons">
-        <li><a ng-href="#" ng-click="updateFilter('popular')"><i class="fa fa-star"></i> POPULAR </a> </li>
-        <li><a ng-href="#" ng-click="updateFilter('new')"><i class="fa fa-rss"></i> NEWEST </a> </li>
-        <li><a ng-href="#" ng-click="updateFilter('link')"><i class="fa fa-link"></i> LINKS</a></li>
-        <li><a ng-href="#" ng-click="updateFilter('event')"><i class="fa fa-calendar"></i> EVENTS</a></li>
-        <li><a ng-href="#" ng-click="updateFilter('job')"><i class="fa fa-dollar"></i> JOBS</a></li>
-        <li><a ng-href="#" ng-click="updateFilter('discussion')"><i class="fa fa-comment"></i> DISCUSSIONS</a></li>
+        <li><a ng-href="" ng-click="updateFilter('popular')"><i class="fa fa-star"></i> POPULAR </a> </li>
+        <li><a ng-href="" ng-click="updateFilter('new')"><i class="fa fa-rss"></i> NEWEST </a> </li>
+        <li><a ng-href="" ng-click="updateFilter('link')"><i class="fa fa-link"></i> LINKS</a></li>
+        <li><a ng-href="" ng-click="updateFilter('event')"><i class="fa fa-calendar"></i> EVENTS</a></li>
+        <li><a ng-href="" ng-click="updateFilter('job')"><i class="fa fa-dollar"></i> JOBS</a></li>
+        <li><a ng-href="" ng-click="updateFilter('discussion')"><i class="fa fa-comment"></i> DISCUSSIONS</a></li>
       </ul>
     </div>
     <div class="sub-menu left post" ng-show="postsSubMenuMobile">
       <ul class="icons">
-        <li><a ng-href="#" ng-click="updatePosts(10)">10 POSTS </a> </li>
-        <li><a ng-href="#" ng-click="updatePosts(20)">20 POSTS </a> </li>
-        <li><a ng-href="#" ng-click="updatePosts(50)">50 POSTS </a> </li>
-        <li><a ng-href="#" ng-click="updatePosts(100)">100 POSTS </a> </li>
+        <li><a ng-href="" ng-click="updatePosts(10)">10 POSTS </a> </li>
+        <li><a ng-href="" ng-click="updatePosts(20)">20 POSTS </a> </li>
+        <li><a ng-href="" ng-click="updatePosts(50)">50 POSTS </a> </li>
+        <li><a ng-href="" ng-click="updatePosts(100)">100 POSTS </a> </li>
       </ul>
     </div>
     <div class="sub-menu right" ng-show="profileSubMenuMobile">
       <ul>
-        <li><a ng-href="#" ng-click="showSignup()" ng-hide="user"><i class="fa fa-bolt"></i> SIGN UP</a></li>
-        <li><a ng-href="#" ng-click="showLogin()" ng-hide="user"><i class="fa fa-sign-in"></i> LOGIN</a></li>
+        <li><a ng-href="" ng-click="showSignup()" ng-hide="user"><i class="fa fa-bolt"></i> SIGN UP</a></li>
+        <li><a ng-href="" ng-click="showLogin()" ng-hide="user"><i class="fa fa-sign-in"></i> LOGIN</a></li>
 
-        <li><a ng-href="#" ng-click="logout()" ng-show="user"><i class="fa fa-sign-out"></i> LOGOUT</a></li>
-        <li><a ng-href="#" ng-show="user"><i class="fa fa-user"></i> {{ user.name | uppercase }}</a></li>
-        <li><a ng-href="#" ng-click="showPost()" ng-show="user"><i class="fa fa-plus-circle"></i> SUBMIT</a></li>
+        <li><a ng-href="" ng-click="logout()" ng-show="user"><i class="fa fa-sign-out"></i> LOGOUT</a></li>
+        <li><a ng-href="" ng-show="user"><i class="fa fa-user"></i> {{ user.name | uppercase }}</a></li>
+        <li><a ng-href="" ng-click="showPost()" ng-show="user"><i class="fa fa-plus-circle"></i> SUBMIT</a></li>
       </ul>
     </div>
   </nav>

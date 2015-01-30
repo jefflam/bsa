@@ -4,11 +4,12 @@
   margin-top: 10px;
   padding: 5px 0px 7px 0px;
   width: 95%;
+  box-shadow: 0 2px 2px #ddd;
   .news-link {
     position: relative;
     left: 38px;
     float: left;
-    width: 50%;
+    width: 80%;
     .title {
       font-size: 16px;
       color: #555555;
@@ -160,7 +161,7 @@
 and (max-width : 768px) {
   .news {
     .news-link {
-      width: 70%;
+      width: 80%;
     }
   }
 }
